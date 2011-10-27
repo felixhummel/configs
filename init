@@ -1,0 +1,97 @@
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8 filetype=python :
+
+import os
+from os import listdir, chdir
+from os.path import abspath, dirname, isdir, join
+import shutil
+import subprocess
+from optparse import OptionParser
+
+IGNORED_DIRS = ['.git']
+
+# everything happens relative to this file's parent dir
+here = abspath(dirname(__file__))
+chdir(here)
+checkout_dirname = os.path.basename(here)
+
+OVERRIDE_PREVIOUS = False
+HOME = os.environ['HOME']
+BACKUP_DIR = join(HOME, 'bak', checkout_dirname)
+
+# Printing Stuff
+# ==============
+
+class col:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+
+def log(s):
+    print s
+
+def warn(s):
+    print col.WARNING + 'Warning: ' + col.ENDC + s
+
+# Doing Stuff
+# ===========
+def run(cmd):
+    p = subprocess.Popen(cmd, shell=True)
+    p.wait()
+
+def makelink(src, dest_filename):
+    dest = join(HOME, dest_filename)
+    if OVERRIDE_PREVIOUS:
+        if os.path.islink(dest):
+            warn('Removing link '+dest)
+            os.unlink(dest)
+        elif os.path.isdir(dest) or os.path.isfile(dest):
+            shutil.move(dest, BACKUP_DIR)
+    src = join(os.getcwd(), src)
+    try:
+        os.symlink(src, dest)
+        log('Linked %s to %s'%(src, dest))
+    except OSError as (errno, strerror):
+        warn('{0}: {1}'.format(strerror, src))
+
+def handle_tool(tooldir):
+    "This assumes that tool is a directory below $WD."
+    print 'Initializing '+tooldir
+    files = listdir(tooldir)
+    if 'MAP' in files:
+        print "Using MAP file for "+tooldir
+    else:
+        for fname in files:
+            src = join(tooldir, fname)
+            dest_filename = '.'+fname
+            makelink(src, '.'+fname)
+
+def get_tool_dirs():
+    # get tool directories
+    result = filter(isdir, listdir(here))
+    result = set(result).difference(IGNORED_DIRS)
+    return result
+
+def main():
+
+    run('git submodule update --init')
+
+    for tool in get_tool_dirs():
+        handle_tool(tool)
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option("-f", "--force",
+                      action="store_true", dest="force", default=False,
+                      help="force overriding old options. Removes links and moves dirs/files to $HOME/bak")
+
+    (options, args) = parser.parse_args()
+    OVERRIDE_PREVIOUS = options.force
+    # if we may need backups, create BACKUP_DIR
+    if OVERRIDE_PREVIOUS:
+        if not isdir(BACKUP_DIR):
+            os.makedirs(BACKUP_DIR)
+    main()

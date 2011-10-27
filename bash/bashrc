@@ -1,0 +1,32 @@
+# ==============
+# Shell Defaults
+# ==============
+
+# include binaries from $HOME/bin. To add more, link them in $HOME/bin/
+export PATH=$PATH:$HOME/bin
+
+# global bash completion
+[[ -s /etc/bash_completion ]] && source /etc/bash_completion
+
+# tweak history
+export HISTCONTROL=ignoreboth
+export HISTSIZE=9999
+export HISTIGNORE=ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*
+
+# disable beep
+[[ $TERM != "dumb" ]] && setterm -blength 0
+
+# load everything from $HOME/.bash/ except README.md and directories
+if [[ -d $HOME/.bash/ ]]; then
+    for f in $HOME/.bash/*; do
+        [[ $f == *README.md* ]] && continue
+        [[ -d $f ]] && continue
+        source $f
+    done
+fi
+
+# set vim as default editor
+vim=/usr/bin/vim
+export EDITOR=$vim
+export VISUAL=$vim
+

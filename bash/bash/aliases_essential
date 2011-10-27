@@ -1,0 +1,22 @@
+alias bashaliases="vim ~/.bash/; source ~/.bashrc"
+
+# essentials
+alias ls="ls --color=auto"
+alias l="ls -l"
+alias la="ls -la"
+alias df="df -h"
+alias du="du -h"
+alias wget="wget -c"  # continue flag
+
+# net
+alias pingheise="ping www.heise.de"
+alias pinggoogle="ping www.google.com"
+
+# apps
+alias g="git"
+alias vim="vim -p"  # open files in tabs
+complete -o bashdefault -o default -o nospace -F _git g
+
+# shortcuts
+alias notes="vim $HOME/notes.txt"
+alias todo="vim $HOME/todo.txt"

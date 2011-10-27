@@ -1,0 +1,15 @@
+# how to create new shortcuts:
+# run ``cat > /tmp/x``
+# type your shortcut
+# press enter (creates new line still in cat)
+# press C-d to send EOF to cat
+# run ``cat -v /tmp/x | sed 's;\^\[;\\e;'``
+# paste output here
+
+# ipython style history
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
+# fast cd .. :)
+bind '"\e[1;5A": "pushd .. &> /dev/null\n"'
+bind '"\e[1;5B": "popd &> /dev/null\n"'
