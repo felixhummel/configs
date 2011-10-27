@@ -54,8 +54,8 @@ def makelink(src, dest_filename):
     try:
         os.symlink(src, dest)
         log('Linked %s to %s'%(src, dest))
-    except OSError as (errno, strerror):
-        warn('{0}: {1}'.format(strerror, src))
+    except OSError, (errno, strerror):
+        warn('%s: %s'%(strerror, src))
 
 def handle_tool(tooldir):
     "This assumes that tool is a directory below $WD."
