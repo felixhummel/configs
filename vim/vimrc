@@ -1,0 +1,61 @@
+version 7.2
+
+python << ----------------------------------------
+# load all files in ~/.vim/0-my_stuff/
+from os import listdir
+from os.path import expanduser, isfile, join
+import vim
+d = expanduser('~/.vim/0-my_stuff/')
+files = filter(isfile, [join(d, f) for f in listdir(d)])
+for f in files:
+    vim.command('source %s'%f)
+----------------------------------------
+
+" load plugin bundles (e.g. vim-coffeescript)
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" XXX somehow make this file recognize, if terminal is dark or light
+set background=dark
+set backspace=indent,eol,start
+set fileencodings=utf-8,ucs-bom,default,latin1
+set helplang=en
+set history=9000
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set termencoding=utf-8
+set viminfo='20,\"50
+set wildignore=*.pyc
+set modeline  " execute custom modelines in files
+set laststatus=2  " always display status line
+set mouse-=a  " disable mouse
+set hlsearch  " highlight all search terms
+set wildmode=longest:list  " bash-like tab completion
+set tabpagemax=99  " give me many tabs (not just 10 of them)
+set tabstop=2  " see :retab
+set softtabstop=2 " compatability with mix of tabs and spaces
+set shiftwidth=2 " for >> and <<
+
+syntax on
+
+" ft plugins
+filetype off  " force filetyp reloading for pathogen
+filetype plugin indent on  " see :h :filetype-plugin-on and :h :filetype-indent-on
+
+" completion
+set complete=.,w,b,u,t
+set noswapfile  " disable swapfiles
+
+" NERDTree
+let g:NERDTreeWinPos="right"
+map <F10> :NERDTreeToggle<CR>
+" http://stackoverflow.com/questions/1447334/how-do-you-add-nerdtree-to-your-vimrc
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
+
+" ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+" vim: set ft=vim 
