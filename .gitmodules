@@ -12,7 +12,7 @@
 	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/vim/bundle/wmgraphviz.vim"]
 	path = vim/vim/bundle/wmgraphviz.vim
-	url = git://github.com:felixhummel/wmgraphviz.vim.git
+	url = git://github.com/felixhummel/wmgraphviz.vim.git
 [submodule "vim/vim/bundle/json"]
 	path = vim/vim/bundle/json
-	url = git://github.com:felixhummel/vim-json.git
+	url = git://github.com/felixhummel/vim-json.git
