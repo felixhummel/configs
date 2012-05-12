@@ -11,6 +11,7 @@ Clone this and initialize. Backups will be created in `$HOME/bak/configs`.
 Installing Git
 ==============
 
+    sudo apt-get build-dep git-core
     latest_git_version=$(curl -s http://git-scm.com/ | grep "class='version'" | perl -pe 's/.*?(\d+\.\d+\.\d+\.\d+)<.*/$1/')
     echo $latest_git_version 
     cd /tmp
