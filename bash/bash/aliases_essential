@@ -1,5 +1,8 @@
 alias bashaliases="vim ~/.bash/; source ~/.bashrc"
 
+# single char
+alias v="vim"
+
 # essentials
 alias ls="ls --color=auto"
 alias l="ls -l"
