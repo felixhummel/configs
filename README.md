@@ -12,7 +12,7 @@ Installing Git
 ==============
 
     sudo apt-get build-dep git-core
-    latest_git_version=$(curl -s http://git-scm.com/ | grep "class='version'" | perl -pe 's/.*?(\d+\.\d+\.\d+\.\d+)<.*/$1/')
+    latest_git_version=$(curl -s http://git-scm.com/ | grep "class='version'" | perl -pe 's/.*?(\d+\.\d+\.\d+)<.*/$1/')
     echo $latest_git_version 
     cd /tmp
     wget http://git-core.googlecode.com/files/git-${latest_git_version}.tar.gz
