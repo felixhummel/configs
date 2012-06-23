@@ -11,12 +11,11 @@ Clone this and initialize. Backups will be created in `$HOME/bak/configs`.
 Installing Git
 ==============
 
-    sudo apt-get build-dep git-core
-    latest_git_version=$(curl -s http://git-scm.com/ | grep "class='version'" | perl -pe 's/.*?(\d+\.\d+\.\d+)<.*/$1/')
-    echo $latest_git_version 
+    sudo apt-get build-dep git-core docbook2x
+    latest_git_version=$(curl -s http://git-scm.com/ | grep "class='version'" | perl -pe 's/.*?([0-9\.]+)<.*/$1/') && echo ${latest_git_version}
     cd /tmp
-    wget http://git-core.googlecode.com/files/git-${latest_git_version}.tar.gz
+    wget -O git-${latest_git_version}.tar.gz https://github.com/git/git/tarball/v1.7.11.1
     tar xzf git-${latest_git_version}.tar.gz
-    cd git-${latest_git_version}
-    ./configure && make && sudo make install
+    cd git-git-*
+    sudo make prefix=/usr/local install install-doc install-html install-info
 
