@@ -6,10 +6,15 @@
 # run ``cat -v /tmp/x | sed 's;\^\[;\\e;'``
 # paste output here
 
-# ipython style history
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+# check if bind can be run without error
+[[ $(bind 2>&1) == '' ]]
+# apply bindings only if we have a terminal
+if [[ $? == 0 ]]; then
+  # ipython style history
+  bind '"\e[A":history-search-backward'
+  bind '"\e[B":history-search-forward'
 
-# fast cd .. :)
-bind '"\e[1;5A": "pushd .. &> /dev/null\n"'
-bind '"\e[1;5B": "popd &> /dev/null\n"'
+  # fast cd .. :)
+  bind '"\e[1;5A": "pushd .. &> /dev/null\n"'
+  bind '"\e[1;5B": "popd &> /dev/null\n"'
+fi
