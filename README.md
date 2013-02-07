@@ -10,6 +10,10 @@ Clone this and initialize. Backups will be created in `$HOME/bak/configs`.
 
 Installing Git
 ==============
+Latest stable from source
 
     wget -O - https://raw.github.com/felixhummel/x/master/git_from_source.sh | bash
 
+or via apt
+
+    sudo apt-get install git
