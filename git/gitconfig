@@ -9,6 +9,8 @@
   d = diff --color
   ds = diff --color --staged
   graph = log --graph --pretty=oneline --abbrev-commit
+  # http://coderwall.com/p/euwpig?i=3&p=1&t=git
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold white)<%an>%Creset' --abbrev-commit
   m = commit -avm
   rollback = reset --soft HEAD^
   s = status
