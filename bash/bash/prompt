@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # some color definitions
 BLACK="\[\e[0;30m\]"
 RED="\[\e[0;31m\]"
@@ -17,11 +19,13 @@ LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 NOTHING="\[\e[0m\]"
 
-default_prompt="${LIGHT_GRAY}\h ${GREEN}\w ${LIGHT_GREEN}\\\$${NOTHING} "
+host_color=${LIGHT_GRAY}
+default_prompt="${VENV_FLAG}${host_color}\h ${GREEN}\w ${LIGHT_GREEN}\\\$${NOTHING} "
 
 git_prompt() {
+    # check for git
     local x=""
-    status=$(git status -s 2> /dev/null)  # 4 ms on my box, recurses automatically
+    status=$(git status -s 2>/dev/null)  # 4 ms on my box, recurses automatically
     if [[ $? != 0 ]]; then
         # not in a git repository
         x=$default_prompt
@@ -37,9 +41,15 @@ git_prompt() {
         fi
         x="\h $branch_color${branch} ${GREEN}\w ${LIGHT_GREEN}\\$ ${NOTHING}"
     fi
+
+    # check for venv
+    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}venv${NOTHING} $x"
+
     PS1=$x
 }
 
 PROMPT_COMMAND=git_prompt
+
+export PS4="${LIGHT_PURPLE}+ ${NOTHING}"
 
 # vim: set ft=sh :
