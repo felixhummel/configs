@@ -42,6 +42,3 @@
   changed = green
   untracked = cyan
 
-[user]
-  name = Felix Hummel
-  email = felix@felixhummel.de
