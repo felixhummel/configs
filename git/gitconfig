@@ -1,7 +1,4 @@
 [alias]
-  aa = add .
-  # stage modified (not new files)
-  au = add -u
   b = branch
   ci = commit --verbose
   cia = commit --verbose --all
@@ -11,12 +8,15 @@
   graph = log --graph --pretty=oneline --abbrev-commit
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold white)<%an>%Creset' --abbrev-commit
-  m = commit -avm
+  ls-green-and-blue = ls-files --modified --others --exclude-standard
+  patch = diff --patch --no-prefix --no-color
+  pff = pull --ff-only
+  pr = pull --rebase
+  poop = stash pop
   rollback = reset --soft HEAD^
   s = status
   ss = status -uno
   outgoing = log origin/master..HEAD
-  mergex = merge --no-ff
 
 [branch]
   autosetupmerge = always
