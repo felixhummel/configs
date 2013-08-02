@@ -11,7 +11,7 @@ export PATH=$PATH:$HOME/bin
 # tweak history
 export HISTCONTROL=ignoreboth
 export HISTSIZE=9999
-export HISTIGNORE=ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*
+export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
 
 # disable beep
 [[ $TERM != "dumb" ]] && setterm -blength 0
