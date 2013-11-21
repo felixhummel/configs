@@ -3,20 +3,19 @@
 	url = https://github.com/micha/resty.git
 [submodule "vim/vim/bundle/command-t"]
 	path = vim/vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
+	url = https://github.com/wincent/Command-T.git
 [submodule "vim/vim/bundle/fugitive"]
 	path = vim/vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/vim/bundle/coffeescript"]
 	path = vim/vim/bundle/coffeescript
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/vim/bundle/wmgraphviz.vim"]
 	path = vim/vim/bundle/wmgraphviz.vim
-	url = git://github.com/felixhummel/wmgraphviz.vim.git
+	url = https://github.com/felixhummel/wmgraphviz.vim.git
 [submodule "vim/vim/bundle/json"]
 	path = vim/vim/bundle/json
-	url = git://github.com/felixhummel/vim-json.git
-
+	url = https://github.com/felixhummel/vim-json.git
 [submodule "vim/vim/bundle/salt"]
 	path = vim/vim/bundle/salt
 	url = https://github.com/saltstack/salt-vim.git
