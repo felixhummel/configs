@@ -1,5 +1,4 @@
 [alias]
-  b = branch
   ci = commit --verbose
   cia = commit --verbose --all
   co = checkout
@@ -7,13 +6,20 @@
   ds = diff --color --staged
   graph = log --graph --pretty=oneline --abbrev-commit
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold white)<%an>%Creset' --abbrev-commit
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
+  # hack to remove timestamp offset http://stackoverflow.com/questions/7853332/git-log-date-formats
+  lf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai%x08%x08%x08%x08%x08%x08) %C(bold white)<%an>%Creset' --abbrev-commit
   ls-green-and-blue = ls-files --modified --others --exclude-standard
+  m = commit -avm
+  mff = merge --ff-only
   patch = diff --patch --no-prefix --no-color
   pff = pull --ff-only
   pr = pull --rebase
   poop = stash pop
   rollback = reset --soft HEAD^
+  r1 = rebase -i HEAD~1
+  r2 = rebase -i HEAD~2
+  r3 = rebase -i HEAD~3
   s = status
   ss = status -uno
   outgoing = log origin/master..HEAD
@@ -41,4 +47,10 @@
   added = yellow
   changed = green
   untracked = cyan
+
+[push]
+  default = simple
+
+[merge]
+  tool = kdiff3
 
