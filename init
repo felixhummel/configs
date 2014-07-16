@@ -1,6 +1,19 @@
 #!/usr/bin/env python
 # vim: set fileencoding=utf-8 filetype=python :
+"""Link configs for tools defined here to $HOME.
 
+Why this script?
+================
+The obvious alternative would be a directory like this::
+
+    configs/.bashrc
+    configs/.vimrc
+    configs/.vim/
+
+- A simple ls does not work.
+- File managers need to display hidden files.
+- Need to type dot when navigating on the commandline.
+"""
 import os
 from os import listdir, chdir
 from os.path import abspath, dirname, isdir, join
@@ -8,7 +21,7 @@ import shutil
 import subprocess
 from optparse import OptionParser
 
-IGNORED_DIRS = ['.git']
+IGNORED_DIRS = ['.git', 'kde-shortcuts']
 
 # everything happens relative to this file's parent dir
 here = abspath(dirname(__file__))
@@ -19,76 +32,90 @@ OVERRIDE_PREVIOUS = False
 HOME = os.environ['HOME']
 BACKUP_DIR = join(HOME, 'bak', checkout_dirname)
 
-# Printing Stuff
-# ==============
+import logging
+log = logging.getLogger('init')
+logging.basicConfig(level=logging.WARN, format='[%(levelname)s] %(message)s')
 
-class col:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
 
-def log(s):
-    print s
-
-def warn(s):
-    print col.WARNING + 'Warning: ' + col.ENDC + s
-
-# Doing Stuff
-# ===========
 def run(cmd):
+    "Run command as if in shell. Blocking."
     p = subprocess.Popen(cmd, shell=True)
     p.wait()
 
+
 def makelink(src, dest_filename):
+    "Think ln -s"
     dest = join(HOME, dest_filename)
+    log.debug('link %s %s', src, dest)
     if OVERRIDE_PREVIOUS:
         if os.path.islink(dest):
-            warn('Removing link '+dest)
+            log.debug('Removing link '+dest)
             os.unlink(dest)
         elif os.path.isdir(dest) or os.path.isfile(dest):
+            log.warn("mv %s %s", dest, BACKUP_DIR)
             shutil.move(dest, BACKUP_DIR)
     src = join(os.getcwd(), src)
     try:
         os.symlink(src, dest)
-        log('Linked %s to %s'%(src, dest))
-    except OSError, (errno, strerror):
-        warn('%s: %s'%(strerror, src))
+        log.debug('Linked %s to %s' % (src, dest))
+    except OSError as (errno, strerror):
+        if strerror != 'File exists':
+            raise
+        else:
+            log.info('%s: %s' % (strerror, src))
+
 
 def handle_tool(tooldir):
-    "This assumes that tool is a directory below $WD."
-    print 'Initializing '+tooldir
+    """
+    Given:
+
+        vim/vimrc
+        vim/vim/file1
+
+    It runs:
+
+        ln -s vim/vimrc $HOME/.vimrc
+        ln -s vim/vim $HOME/.vim
+
+    This assumes that foo is a directory below $WD.
+    """
+    log.info('Initializing ' + tooldir)
     files = listdir(tooldir)
-    if 'MAP' in files:
-        print "Using MAP file for "+tooldir
-    else:
-        for fname in files:
-            src = join(tooldir, fname)
-            dest_filename = '.'+fname
-            makelink(src, '.'+fname)
+    for fname in files:
+        src = join(tooldir, fname)
+        makelink(src, '.'+fname)
+
 
 def get_tool_dirs():
-    # get tool directories
     result = filter(isdir, listdir(here))
-    result = set(result).difference(IGNORED_DIRS)
+    result = set(result) - set(IGNORED_DIRS)
     return result
 
+
 def main():
-
     run('git submodule update --init')
-
     for tool in get_tool_dirs():
         handle_tool(tool)
+
 
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option("-f", "--force",
                       action="store_true", dest="force", default=False,
-                      help="force overriding old options. Removes links and moves dirs/files to $HOME/bak")
+                      help="force overriding old options. Removes links and\
+                            moves dirs/files to $HOME/bak")
+    parser.add_option("-v", "--verbose",
+                      action="store_true", dest="verbose", default=False,
+                      help="Info logging")
+    parser.add_option("-d", "--debug",
+                      action="store_true", dest="debug", default=False,
+                      help="Debug logging")
 
     (options, args) = parser.parse_args()
+    if options.debug:
+        log.setLevel(logging.DEBUG)
+    elif options.verbose:
+        log.setLevel(logging.INFO)
     OVERRIDE_PREVIOUS = options.force
     # if we may need backups, create BACKUP_DIR
     if OVERRIDE_PREVIOUS:
