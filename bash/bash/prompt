@@ -19,8 +19,9 @@ LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 NOTHING="\[\e[0m\]"
 
+host_prefix="\h"
 host_color=${LIGHT_GRAY}
-default_prompt="${VENV_FLAG}${host_color}\h ${GREEN}\w ${LIGHT_GREEN}\\\$${NOTHING} "
+default_prompt="${VENV_FLAG}${host_color}$host_prefix ${GREEN}\w ${LIGHT_GREEN}\\\$${NOTHING} "
 
 git_prompt() {
     # check for git
@@ -39,7 +40,7 @@ git_prompt() {
         else
             branch_color="${RED}"
         fi
-        x="\h $branch_color${branch} ${GREEN}\w ${LIGHT_GREEN}\\$ ${NOTHING}"
+        x="$host_prefix $branch_color${branch} ${GREEN}\w ${LIGHT_GREEN}\\$ ${NOTHING}"
     fi
 
     # check for venv
