@@ -1,0 +1,10 @@
+!! umlauts on a US keyboard
+!! keycode <number> = <simple press> <with Shift> <with Mode_switch> <with Mode_swtich and Shift>
+!! <Mode_switch> on a european 105-key-layout is usually AltGr
+keycode 26 = e E EuroSign EuroSign
+keycode 38 = a A adiaeresis Adiaeresis
+keycode 30 = u U udiaeresis Udiaeresis
+keycode 32 = o O odiaeresis Odiaeresis
+keycode 39 = s S ssharp
+keycode 108 = Mode_switch
+clear Lock
