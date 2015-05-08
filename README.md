@@ -6,7 +6,7 @@ Clone this and initialize. Backups will be created in `$HOME/bak/configs`.
     cd configs
     git submodule update --init
     ./init --force
-    source $HOME/.bashrc
+    exec $SHELL
 
     git config --global user.email EMAIL
     git config --global user.name "NAME"
