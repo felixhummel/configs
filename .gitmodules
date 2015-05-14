@@ -1,18 +1,9 @@
-[submodule "bash/bash/resty"]
-	path = bash/bash/resty
-	url = https://github.com/micha/resty.git
 [submodule "vim/vim/bundle/command-t"]
 	path = vim/vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
 [submodule "vim/vim/bundle/fugitive"]
 	path = vim/vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/vim/bundle/coffeescript"]
-	path = vim/vim/bundle/coffeescript
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/vim/bundle/wmgraphviz.vim"]
-	path = vim/vim/bundle/wmgraphviz.vim
-	url = https://github.com/felixhummel/wmgraphviz.vim.git
 [submodule "vim/vim/bundle/json"]
 	path = vim/vim/bundle/json
 	url = https://github.com/felixhummel/vim-json.git
