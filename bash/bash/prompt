@@ -19,7 +19,7 @@ LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 NOTHING="\[\e[0m\]"
 
-host_prefix="\h"
+host_prefix="\u@\h"
 host_color=${LIGHT_GRAY}
 default_prompt="${VENV_FLAG}${host_color}$host_prefix ${GREEN}\w ${LIGHT_GREEN}\\\$${NOTHING} "
 
