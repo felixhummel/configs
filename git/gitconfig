@@ -1,3 +1,6 @@
+[include]
+  path = ~/.git/user
+
 [alias]
   ci = commit --verbose
   cia = commit --verbose --all
