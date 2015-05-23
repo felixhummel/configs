@@ -76,8 +76,6 @@ def handle_tool(tooldir):
 
         ln -s vim/vimrc $HOME/.vimrc
         ln -s vim/vim $HOME/.vim
-
-    This assumes that foo is a directory below $WD.
     """
     log.info('Initializing ' + tooldir)
     files = listdir(tooldir)
@@ -88,8 +86,27 @@ def handle_tool(tooldir):
 
 def get_tool_dirs():
     result = filter(isdir, listdir(here))
-    result = set(result) - set(IGNORED_DIRS)
-    return result
+    return set(result) - set(IGNORED_DIRS)
+
+
+def gen_git_config(email=None, name=None):
+    path = join(HOME, '.git', 'user')
+
+    if email is None:
+        email = raw_input("git email: ")
+    if name is None:
+        name = raw_input("git name: ")
+
+    cfg = """\
+[user]
+  email = {email}
+  name = {name}
+""".format(**locals())
+
+    if not os.path.exists(path):
+        with open(path, 'w') as f:
+            f.write(cfg)
+        log.info("Wrote {}".format(path))
 
 
 def main():
@@ -104,6 +121,12 @@ if __name__ == '__main__':
                       action="store_true", dest="force", default=False,
                       help="force overriding old options. Removes links and\
                             moves dirs/files to $HOME/bak")
+    parser.add_option("-e", "--email",
+                      action="store", dest="email",
+                      help="Email for git")
+    parser.add_option("-n", "--name",
+                      action="store", dest="name",
+                      help='Name for git, e.g. "Felix Hummel"')
     parser.add_option("-v", "--verbose",
                       action="store_true", dest="verbose", default=False,
                       help="Info logging")
@@ -122,3 +145,4 @@ if __name__ == '__main__':
         if not isdir(BACKUP_DIR):
             os.makedirs(BACKUP_DIR)
     main()
+    gen_git_config(options.email, options.name)
