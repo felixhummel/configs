@@ -1,6 +1,15 @@
 #!/bin/bash
+# http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux
+
+# TODO clean up the namespace
+
+ansi256() {
+  local num=$1
+  echo -e "\[\e[38;5;${num}m\]"
+}
 
 # some color definitions
+NOTHING="\[\e[0m\]"
 BLACK="\[\e[0;30m\]"
 RED="\[\e[0;31m\]"
 GREEN="\[\e[0;32m\]"
@@ -17,11 +26,13 @@ LIGHT_BLUE="\[\e[1;34m\]"
 LIGHT_PURPLE="\[\e[1;35m\]"
 LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
-NOTHING="\[\e[0m\]"
+GOLD="\[\e[38;5;136m\]"
 
-host_prefix="\u@\h"
-host_color=${LIGHT_GRAY}
-default_prompt="${VENV_FLAG}${host_color}$host_prefix ${GREEN}\w ${LIGHT_GREEN}\\\$${NOTHING} "
+host_color=$GOLD
+host_prefix="\u@${host_color}\h"
+first_part="${VENV_FLAG}$host_prefix"
+second_part="${GREEN}\w ${RED}\\\$${NOTHING} "
+default_prompt="$first_part $second_part"
 
 git_prompt() {
     # check for git
@@ -40,7 +51,7 @@ git_prompt() {
         else
             branch_color="${RED}"
         fi
-        x="$host_prefix $branch_color${branch} ${GREEN}\w ${LIGHT_GREEN}\\$ ${NOTHING}"
+        x="$first_part $branch_color${branch} $second_part"
     fi
 
     # check for venv
