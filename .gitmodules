@@ -10,3 +10,6 @@
 [submodule "vim/vim/bundle/salt"]
 	path = vim/vim/bundle/salt
 	url = https://github.com/saltstack/salt-vim.git
+[submodule "vim/vim/bundle/sahara"]
+	path = vim/vim/bundle/sahara
+	url = https://github.com/felixhummel/sahara
