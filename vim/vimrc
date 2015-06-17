@@ -60,4 +60,5 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 colorscheme sahara
 
+let g:UltiSnipsEditSplit="vertical"
 " vim: set ft=vim 
