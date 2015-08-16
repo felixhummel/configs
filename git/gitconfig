@@ -57,3 +57,6 @@
 
 [url "https://"]
 	insteadOf = git://
+
+[core]
+  excludesfile = /home/felix/.gitignore_global
