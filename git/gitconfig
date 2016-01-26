@@ -49,9 +49,6 @@
   changed = green
   untracked = cyan
 
-[push]
-  default = simple
-
 [merge]
   tool = kdiff3
 
