@@ -1,5 +1,6 @@
 [include]
   path = ~/.gitconfig.d/user
+  path = ~/.gitconfig.d/local
 
 [alias]
   ci = commit --verbose

@@ -2,4 +2,5 @@ bash/bash/local
 git/gitconfig.d/user
 vim/vim/.netrwhist
 vim/vim/doc/tags
+git/gitconfig.d/local
 
