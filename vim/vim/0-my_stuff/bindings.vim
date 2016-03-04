@@ -14,9 +14,7 @@ inoremap <Nul> <C-x><C-o>
 
 " fix <C-Home> and <C-End> for xfce4-terminal
 " http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
-if $COLORTERM == "xfce4-terminal"
-  set <F13>=OH
-  map <F13> gg
-  set <F14>=OF
-  map <F14> G
-endif
+set <F13>=OH
+map <F13> gg
+set <F14>=OF
+map <F14> G
