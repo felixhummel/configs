@@ -2,7 +2,3 @@ if [ -f "$HOME/.bashrc" ]; then
   . "$HOME/.bashrc"
 fi
 
-# startup virtualenv-burrito
-if [ -f "$HOME/.venvburrito/startup.sh" ]; then
-  . $HOME/.venvburrito/startup.sh
-fi
