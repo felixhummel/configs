@@ -1,8 +1,3 @@
-alias bashaliases="vim ~/.bash/; source ~/.bashrc"
-
-# single char
-alias v="vim"
-
 # essentials
 alias ls="ls --color=auto"
 alias l="ls -l"
@@ -19,12 +14,8 @@ alias pinggoogle="ping www.google.com"
 
 # apps
 alias g="git"
-alias ipy="ipython"
+alias v="vim -p"
+alias vi="vim -p"  # open files in tabs
 alias vim="vim -p"  # open files in tabs
-alias v=vim
 complete -o bashdefault -o default -o nospace -F _git g
-
-# shortcuts
-alias notes="vim $HOME/notes.txt"
-alias todo="vim $HOME/todo.txt"
 
