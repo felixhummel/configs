@@ -14,6 +14,7 @@ alias pinggoogle="ping www.google.com"
 
 # apps
 alias g="git"
+alias s="ssh"
 alias v="vim -p"
 alias vi="vim -p"  # open files in tabs
 alias vim="vim -p"  # open files in tabs
