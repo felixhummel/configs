@@ -7,5 +7,13 @@ keycode 30 = u U udiaeresis Udiaeresis
 keycode 32 = o O odiaeresis Odiaeresis
 keycode 39 = s S ssharp
 keycode 108 = Mode_switch
+!! caps lock --> ESC
 clear Lock
 keycode 66 = Escape
+!! fix english right alt
+keycode 108 = 0xfe03
+keycode 108 = Mode_switch
+!! remap W520 previous/next (next to arrow keys) to PgUp/PgDn
+keycode 166 = Prior
+keycode 167 = Next
+
