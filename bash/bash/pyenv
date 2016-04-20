@@ -13,5 +13,5 @@ fi
 my_pyenv_bin=$PYENV_ROOT/versions/$USER/bin
 
 if [[ -d $my_pyenv_bin ]]; then
-  export PATH="$my_pyenv_bin:$PATH"
+  pyenv global $USER
 fi
