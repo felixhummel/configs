@@ -1,15 +1,11 @@
 version 7.2
 
-python << ----------------------------------------
-# load all files in ~/.vim/0-my_stuff/
-from os import listdir
-from os.path import expanduser, isfile, join
-import vim
-d = expanduser('~/.vim/0-my_stuff/')
-files = filter(isfile, [join(d, f) for f in listdir(d)])
-for f in files:
-    vim.command('source %s'%f)
-----------------------------------------
+" load all files in ~/.vim/0-my_stuff/
+" thx @ http://stackoverflow.com/a/14508800 and
+" http://learnvimscriptthehardway.stevelosh.com/chapters/40.html
+for f in split(globpath('~/.vim/0-my_stuff/', '*'), '\n')
+  execute 'source '.fnameescape(f)
+endfor
 
 " load plugin bundles (e.g. vim-coffeescript)
 call pathogen#runtime_append_all_bundles()
