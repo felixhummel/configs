@@ -1,0 +1,1 @@
+[[ -f /home/felix/.pyenv/shims/aws_completer ]] && complete -C '/home/felix/.pyenv/shims/aws_completer' aws
