@@ -22,3 +22,6 @@
 [submodule "vim/vim/bundle/yaml"]
 	path = vim/vim/bundle/yaml
 	url = https://github.com/stephpy/vim-yaml.git
+[submodule "vim/vim/bundle/editorconfig"]
+	path = vim/vim/bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim
