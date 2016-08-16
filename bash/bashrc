@@ -9,6 +9,7 @@ export PATH=$HOME/bin:$PATH:$HOME/.local/bin
 [[ -s /etc/bash_completion ]] && source /etc/bash_completion
 
 # tweak history
+export HISTTIMEFORMAT='%F__%H-%M-%S '
 export HISTCONTROL=ignoreboth
 export HISTSIZE=9999
 export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
