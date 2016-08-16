@@ -1,15 +1,15 @@
 #!/bin/bash
 # http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux
+# tested with DejaVu Sans Mono Book 11 on 27" at 1920x1080
 
-# TODO clean up the namespace
-
+# https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 ansi256() {
-  local num=$1
-  echo -e "\[\e[38;5;${num}m\]"
+    local num=$1
+    echo -e "\[\e[38;5;${num}m\]"
 }
 
 # some color definitions
-NOTHING="\[\e[0m\]"
+CLEAR="\[\e[0m\]"
 BLACK="\[\e[0;30m\]"
 RED="\[\e[0;31m\]"
 GREEN="\[\e[0;32m\]"
@@ -27,21 +27,19 @@ LIGHT_PURPLE="\[\e[1;35m\]"
 LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 GOLD="\[\e[38;5;136m\]"
-
-host_color=$GOLD
-host_prefix="\u@${host_color}\h"
-first_part="${VENV_FLAG}$host_prefix"
-second_part="${GREEN}\w ${RED}\\\$${NOTHING} "
-default_prompt="$first_part $second_part"
+ORANGE="\[\e[38;5;226m\]"
 
 git_prompt() {
+    local retcode=$?  # this must be first
+
+    # user@host
+    host_color=$GOLD
+    host_prefix="\u@${host_color}\h"
+
     # check for git
     local x=""
     status=$(git status -s 2>/dev/null)  # 4 ms on my box, recurses automatically
-    if [[ $? != 0 ]]; then
-        # not in a git repository
-        x=$default_prompt
-    else
+    if [[ $? == 0 ]]; then
         # in a git repository
         branch=$(git branch | grep ^* | sed s/\*\ //)
         [[ -z $branch ]] && branch='[NOBRANCH]'
@@ -51,17 +49,38 @@ git_prompt() {
         else
             branch_color="${RED}"
         fi
-        x="$first_part $branch_color${branch} $second_part"
+        git_stuff=" $branch_color${branch}"
     fi
 
+    # working directory
+    local dir=" ${GREEN}\w"
+
+    # non-zero exit
+    local exit_part=''
+    local uid_color="${CLEAR}"
+    if [[ $retcode != 0 ]]; then
+        uid_color="${ORANGE}"
+    fi
+    uid=" ${uid_color}\\\$"
+
+    # putting it all together
+    x="$host_prefix$git_stuff$dir$uid ${CLEAR}"
+
     # check for venv
-    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}venv${NOTHING} $x"
+    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}venv${CLEAR} $x"
 
     PS1=$x
 }
 
 PROMPT_COMMAND=git_prompt
 
-export PS4="${LIGHT_PURPLE}+ ${NOTHING}"
+# TODO find out why xfce4-terminal fails to render
+#   "${LIGHT_PURPLE}+ ${CLEAR}"
+export PS4="▬ "
+
+# debug
+# http://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup
+#export PS4="▬ $(date "+.%N")\011 "
 
 # vim: set ft=sh :
+
