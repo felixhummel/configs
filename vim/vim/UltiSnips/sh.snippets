@@ -1,3 +1,13 @@
 snippet set
 set -euo pipefail
 endsnippet
+
+snippet ft
+# vim: set ft=sh :
+endsnippet
+
+# see UltiSnips-character-escaping
+snippet here
+here="\$(readlink -m \$(dirname \$0))"
+endsnippet
+
