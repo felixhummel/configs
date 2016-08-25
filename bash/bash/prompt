@@ -27,7 +27,6 @@ LIGHT_PURPLE="\[\e[1;35m\]"
 LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 GOLD="\[\e[38;5;136m\]"
-ORANGE="\[\e[38;5;226m\]"
 
 git_prompt() {
     local retcode=$?  # this must be first
@@ -57,9 +56,9 @@ git_prompt() {
 
     # non-zero exit
     local exit_part=''
-    local uid_color="${CLEAR}"
+    local uid_color="${GOLD}"
     if [[ $retcode != 0 ]]; then
-        uid_color="${ORANGE}"
+        uid_color="${RED}"
     fi
     uid=" ${uid_color}\\\$"
 
