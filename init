@@ -106,7 +106,7 @@ def gen_git_config(email=None, name=None):
     if not os.path.exists(path):
         with open(path, 'w') as f:
             f.write(cfg)
-        log.info("Wrote {}".format(path))
+        log.info("Wrote {0}".format(path))
 
 
 def main():
