@@ -19,8 +19,12 @@ alias v="vim -p"
 alias vi="vim -p"  # open files in tabs
 alias vim="vim -p"  # open files in tabs
 complete -o bashdefault -o default -o nospace -F _git g
+alias d="docker"
 
 # stuff that needs root privileges by design
 if [[ $UID != 0 ]]; then
   alias salt-call="sudo salt-call"
 fi
+
+# anti-stupidity
+alias gs="git s"
