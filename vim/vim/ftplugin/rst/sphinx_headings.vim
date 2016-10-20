@@ -11,7 +11,11 @@
 " - creating heading on last line fails for over- and underline
 " - mappings should be defined elsewhere
 
-python << EOF
+if !has('python')
+  finish
+endif
+
+Python << EOF
 import vim
 levels = {1: '#',
           2: '*',
