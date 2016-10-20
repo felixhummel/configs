@@ -3,7 +3,8 @@
 # ==============
 
 # include binaries from $HOME/bin. To add more, link them in $HOME/bin/
-export PATH=$HOME/bin:$PATH:$HOME/.local/bin
+# $HOME/bin.private contains stuff I don't want to publish (yet)
+export PATH=$HOME/bin.private:$HOME/bin:$PATH:$HOME/.local/bin
 
 # global bash completion
 [[ -s /etc/bash_completion ]] && source /etc/bash_completion
