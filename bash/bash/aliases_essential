@@ -20,6 +20,8 @@ alias vi="vim -p"  # open files in tabs
 alias vim="vim -p"  # open files in tabs
 complete -o bashdefault -o default -o nospace -F _git g
 alias d="docker"
+alias dc="docker-compose"
+complete -F _docker_compose dc
 
 # stuff that needs root privileges by design
 if [[ $UID != 0 ]]; then
