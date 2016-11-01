@@ -49,6 +49,8 @@ git_prompt() {
             branch_color="${RED}"
         fi
         git_stuff=" $branch_color${branch}"
+    else
+        git_stuff=""
     fi
 
     # working directory
