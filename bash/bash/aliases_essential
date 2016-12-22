@@ -20,6 +20,7 @@ alias vi="vim -p"  # open files in tabs
 alias vim="vim -p"  # open files in tabs
 complete -o bashdefault -o default -o nospace -F _git g
 alias d="docker"
+complete -F _docker d
 alias dc="docker-compose"
 complete -F _docker_compose dc
 
