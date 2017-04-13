@@ -6,6 +6,8 @@
 # $HOME/bin.private contains stuff I don't want to publish (yet)
 export PATH=$HOME/bin.private:$HOME/bin:$PATH:$HOME/.local/bin
 
+[[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
+
 # global bash completion
 [[ -s /etc/bash_completion ]] && source /etc/bash_completion
 
