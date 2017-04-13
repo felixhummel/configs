@@ -54,7 +54,7 @@
   tool = kdiff3
 
 [url "https://"]
-	insteadOf = git://
+  insteadOf = git://
 
 [core]
   excludesfile = /home/felix/.gitignore_global
