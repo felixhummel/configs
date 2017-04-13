@@ -23,7 +23,6 @@ alias d="docker"
 complete -F _docker d
 alias dc="docker-compose"
 complete -F _docker_compose dc
-which qemu > /dev/null || alias qemu="qemu-system-x86_64"
 
 # stuff that needs root privileges by design
 if [[ $UID != 0 ]]; then
