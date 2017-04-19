@@ -1,0 +1,2 @@
+# http://stackoverflow.com/questions/18088372/how-to-npm-install-global-not-as-root
+prefix=${HOME}/.npm-packages

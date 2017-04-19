@@ -1,0 +1,11 @@
+#!/bin/bash
+# http://stackoverflow.com/questions/18088372/how-to-npm-install-global-not-as-root
+
+NPM_PACKAGES=$HOME/.npm-packages
+
+if [[ -d $NPM_PACKAGES ]]; then
+    export NPM_PACKAGES
+    export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+    export PATH=$NPM_PACKAGES/bin:$PATH
+fi
+
