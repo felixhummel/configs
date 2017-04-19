@@ -57,4 +57,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 colorscheme sahara
 
 let g:UltiSnipsEditSplit="vertical"
+
+" default to bash
+" see :help ft-bash-syntax
+let g:is_bash	= 1
+
 " vim: set ft=vim 
