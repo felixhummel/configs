@@ -14,20 +14,31 @@ alias pinggoogle="ping www.google.com"
 
 # apps
 alias g="git"
-alias s="ssh"
-alias v="vim -p"
-alias vi="vim -p"  # open files in tabs
-alias vim="vim -p"  # open files in tabs
-complete -o bashdefault -o default -o nospace -F _git g
-alias d="docker"
-complete -F _docker d
-alias dc="docker-compose"
-complete -F _docker_compose dc
+# anti-stupidity (I don't use ghostscript and can still call it with \gs)
+alias gs="git s"
+_completion_loader "git"
+complete -o bashdefault -o default -o nospace -F _git g gs
+
+alias v="vim -p"  # open files in tabs
+alias vi="vim -p"
+alias vim="vim -p"
+
+# https://brbsix.github.io/2015/11/23/perform-tab-completion-for-aliases-in-bash/
+_alias_with_completion() {
+  local name=$1 value=$2 func=$3
+  local cmd=${value/%\ */}
+  # echo name=$name, value=$value, func=$func, cmd=$cmd
+  alias $name="$value"
+  _completion_loader $cmd
+  complete -F $func $name
+}
+
+_alias_with_completion d "docker" _docker
+_alias_with_completion dc "docker-compose" _docker_compose
 
 # stuff that needs root privileges by design
 if [[ $UID != 0 ]]; then
   alias salt-call="sudo salt-call"
 fi
 
-# anti-stupidity
-alias gs="git s"
+# vim: set ft=sh :
