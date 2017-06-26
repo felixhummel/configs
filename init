@@ -58,8 +58,8 @@ def makelink(src, dest_filename):
     try:
         os.symlink(src, dest)
         log.debug('Linked %s to %s' % (src, dest))
-    except OSError as (errno, strerror):
-        if strerror != 'File exists':
+    except OSError as e:
+        if e.strerror != 'File exists':
             raise
         else:
             log.info('%s: %s' % (strerror, src))
