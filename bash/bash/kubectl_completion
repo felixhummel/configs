@@ -1,0 +1,1 @@
+hash kubectl 2>/dev/null && source <(kubectl completion bash)
