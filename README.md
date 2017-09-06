@@ -11,5 +11,5 @@ Clone this and initialize. Backups will be created in `$HOME/bak/configs`.
     ./init --email EMAIL --name "NAME" --force
     exec $SHELL
 
-Email and name will be written to `~/.git/user` which is included by
+Email and name will be written to `~/.gitconfig.d/user` which is included by
 `~/.gitconfig`.
