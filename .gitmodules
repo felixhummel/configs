@@ -25,3 +25,6 @@
 [submodule "vim/vim/bundle/jinja"]
 	path = vim/vim/bundle/jinja
 	url = https://github.com/lepture/vim-jinja.git
+[submodule "vim/vim/bundle/nginx"]
+	path = vim/vim/bundle/nginx
+	url = https://github.com/chr4/nginx.vim.git
