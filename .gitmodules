@@ -28,3 +28,6 @@
 [submodule "vim/vim/bundle/nginx"]
 	path = vim/vim/bundle/nginx
 	url = https://github.com/chr4/nginx.vim.git
+[submodule "vim/vim/bundle/logstash"]
+	path = vim/vim/bundle/logstash
+	url = https://github.com/robbles/logstash.vim.git
