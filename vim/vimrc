@@ -7,9 +7,26 @@ for f in split(globpath('~/.vim/0-my_stuff/', '*'), '\n')
   execute 'source '.fnameescape(f)
 endfor
 
-" load plugin bundles (e.g. vim-coffeescript)
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+augroup filetypedetect
+    au BufRead,BufNewFile *.sls setfiletype sls
+augroup END
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug'  " plug help
+Plug 'felixhummel/sahara'  " color scheme
+Plug 'editorconfig/editorconfig-vim'
+Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'  " default snippets
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'leshill/vim-json'
+Plug 'saltstack/salt-vim'
+Plug 'stephpy/vim-yaml'
+Plug 'lepture/vim-jinja'
+Plug 'chr4/nginx.vim'
+Plug 'chr4/sslsecure.vim'
+Plug 'robbles/logstash.vim'
+call plug#end()
 
 " XXX somehow make this file recognize, if terminal is dark or light
 set background=dark
@@ -30,12 +47,6 @@ set tabpagemax=99  " give me many tabs (not just 10 of them)
 set tabstop=2  " see :retab
 set softtabstop=2 " compatability with mix of tabs and spaces
 set shiftwidth=2 " for >> and <<
-
-syntax on
-
-" ft plugins
-filetype off  " force filetyp reloading for pathogen
-filetype plugin indent on  " see :h :filetype-plugin-on and :h :filetype-indent-on
 
 " completion
 set complete=.,w,b,u,t
