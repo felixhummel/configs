@@ -26,6 +26,15 @@ if [[ -d $HOME/.bash/ ]]; then
     done
 fi
 
+# also load secrets
+if [[ -f $HOME/.bash.secrets ]]; then
+  mode=$(stat -c %a ~/.bash.secrets)
+  if [[ $mode != 600 ]]; then
+    echo "WARNING $HOME/.bash.secrets has mode $mode"
+  fi
+  source $HOME/.bash.secrets
+fi
+
 # set vim as default editor
 vim=/usr/bin/vim
 export EDITOR=$vim
