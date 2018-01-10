@@ -62,17 +62,14 @@ git_prompt() {
     if [[ $retcode != 0 ]]; then
         uid_color="${RED}"
     fi
-    uid="${uid_color}\\\$${CLEAR}"
+    uid=" ${uid_color}\\\$"
 
     # check for venv
     [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && venv="${WHITE}venv${CLEAR} "
 
     # 2-row inspired by simonswine https://asciinema.org/a/47444
     # putting it all together
-    indicator="${GOLD}▶${CLEAR}"
-    line1="$indicator $venv$host_prefix$git_stuff$dir ${CLEAR}"
-    line2="$uid "
-    x="$line1\n$line2"
+    x="╭─$venv$host_prefix$git_stuff$dir ${CLEAR}\n╰─$uid "
 
     PS1=$x
 }
