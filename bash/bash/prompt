@@ -69,7 +69,7 @@ git_prompt() {
 
     # 2-row inspired by simonswine https://asciinema.org/a/47444
     # putting it all together
-    indicator="${GOLD}▶▶▶${CLEAR}"
+    indicator="${GOLD}▶${CLEAR}"
     line1="$indicator $venv$host_prefix$git_stuff$dir ${CLEAR}"
     line2="$uid "
     x="$line1\n$line2"
