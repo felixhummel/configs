@@ -58,18 +58,17 @@ git_prompt() {
 
     # non-zero exit
     local exit_part=''
-    local uid_color="${CLEAR}"
+    local uid_color="${GOLD}"
     if [[ $retcode != 0 ]]; then
         uid_color="${RED}"
     fi
     uid=" ${uid_color}\\\$"
 
-    # check for venv
-    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && venv="${WHITE}venv${CLEAR} "
-
-    # 2-row inspired by simonswine https://asciinema.org/a/47444
     # putting it all together
-    x="╭─$venv$host_prefix$git_stuff$dir ${CLEAR}\n╰─$uid "
+    x="$host_prefix$git_stuff$dir$uid ${CLEAR}"
+
+    # check for venv
+    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}venv${CLEAR} $x"
 
     PS1=$x
 }
