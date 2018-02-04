@@ -62,6 +62,7 @@ map <F10> :NERDTreeToggle<CR>
 colorscheme sahara
 
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 " default to bash
 " see :help ft-bash-syntax
