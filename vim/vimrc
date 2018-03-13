@@ -59,7 +59,7 @@ map <F10> :NERDTreeToggle<CR>
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
 
-colorscheme sahara
+silent! colorscheme sahara
 
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
