@@ -38,7 +38,10 @@ _alias_with_completion dc "docker-compose" _docker_compose
 
 # stuff that needs root privileges by design
 if [[ $UID != 0 ]]; then
+  alias salt="sudo salt"
   alias salt-call="sudo salt-call"
+  alias salt-cloud="sudo salt-cloud"
+  alias salt-run="sudo salt-run"
 fi
 
 # vim: set ft=sh :
