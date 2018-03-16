@@ -17,3 +17,8 @@ Missing git?
 ```
 apt-get update && apt-get --yes install git
 ```
+
+tmux plugins (via TPM)
+```
+git submodule update --init
+```
