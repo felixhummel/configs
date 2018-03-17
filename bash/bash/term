@@ -1,5 +1,8 @@
 #!/bin/bash
 
-if [[ $COLORTERM == 'xfce4-terminal' || $COLORTERM == 'truecolor' ]]; then
-    export TERM=xterm-256color
+if [[ $COLORTERM == xfce4-terminal || $COLORTERM == truecolor ]]; then
+    # tmux? leave it.
+    if [[ $TERM != screen-256color ]]; then
+        export TERM=xterm-256color
+    fi
 fi
