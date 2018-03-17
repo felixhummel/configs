@@ -26,6 +26,7 @@ Plug 'lepture/vim-jinja'
 Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
 Plug 'robbles/logstash.vim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " XXX somehow make this file recognize, if terminal is dark or light
