@@ -28,8 +28,12 @@ LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 GOLD="\[\e[38;5;136m\]"
 
-git_prompt() {
+felix_prompt() {
     local retcode=$?  # this must be first
+
+    # always persist history
+    history -a
+    history -n
 
     # user@host
     host_color=$GOLD
@@ -73,7 +77,7 @@ git_prompt() {
     PS1=$x
 }
 
-PROMPT_COMMAND=git_prompt
+PROMPT_COMMAND=felix_prompt
 
 # TODO find out why xfce4-terminal fails to render
 #   "${LIGHT_PURPLE}+ ${CLEAR}"
