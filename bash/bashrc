@@ -14,7 +14,11 @@ export PATH=$HOME/bin.private:$HOME/bin:$PATH:$HOME/.local/bin
 # tweak history
 export HISTTIMEFORMAT='%F__%H-%M-%S '
 export HISTCONTROL=ignoreboth
-export HISTSIZE=9999
+# if a line has ~100 chars (each 1 byte usually, because utf-8) then 10 lines = 1k
+# max 100 MB --> 100 * 10.000 = 1.000.000 lines
+export HISTSIZE=1000000
+# two lines per hist (timestamp, command) --> 2.000.000 lines
+export HISTFILESIZE=2000000
 export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
 
 # load everything from $HOME/.bash/ except README.md and directories
@@ -30,7 +34,7 @@ fi
 if [[ -f $HOME/.bash.secrets ]]; then
   mode=$(stat -c %a ~/.bash.secrets)
   if [[ $mode != 600 ]]; then
-    echo "WARNING $HOME/.bash.secrets has mode $mode"
+    echo "WARNING $HOME/.bash.secrets has mode $mode" >&2
   fi
   source $HOME/.bash.secrets
 fi
