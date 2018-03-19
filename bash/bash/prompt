@@ -31,10 +31,6 @@ GOLD="\[\e[38;5;136m\]"
 felix_prompt() {
     local retcode=$?  # this must be first
 
-    # always persist history
-    history -a
-    history -n
-
     # user@host
     host_color=$GOLD
     host_prefix="\u@${host_color}\h"
@@ -74,10 +70,14 @@ felix_prompt() {
     # check for venv
     [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}venv${CLEAR} $x"
 
+    # hackety hack, then document (vim `:vsplit ~/.bash_plain_history`)
+    HISTTIMEFORMAT='' history 1 | awk '{$1="";print}' | sed -e 's/^[[:space:]]*//' >> ~/.bash_plain_history
+
     PS1=$x
 }
 
 PROMPT_COMMAND=felix_prompt
+
 
 # TODO find out why xfce4-terminal fails to render
 #   "${LIGHT_PURPLE}+ ${CLEAR}"
