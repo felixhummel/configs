@@ -30,7 +30,7 @@ fi
 if [[ -f $HOME/.bash.secrets ]]; then
   mode=$(stat -c %a ~/.bash.secrets)
   if [[ $mode != 600 ]]; then
-    echo "WARNING $HOME/.bash.secrets has mode $mode"
+    echo "WARNING $HOME/.bash.secrets has mode $mode" >&2
   fi
   source $HOME/.bash.secrets
 fi
