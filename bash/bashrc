@@ -1,12 +1,13 @@
-# ==============
-# Shell Defaults
-# ==============
-
 # include binaries from $HOME/bin. To add more, link them in $HOME/bin/
 # $HOME/bin.private contains stuff I don't want to publish (yet)
 export PATH=$HOME/bin.private:$HOME/bin:$PATH:$HOME/.local/bin
 
 [[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
+
+# set vim as default editor
+vim=/usr/bin/vim
+export EDITOR=$vim
+export VISUAL=$vim
 
 # global bash completion
 [[ -s /etc/bash_completion ]] && source /etc/bash_completion
@@ -20,6 +21,9 @@ export HISTSIZE=1000000
 # two lines per hist (timestamp, command) --> 2.000.000 lines
 export HISTFILESIZE=2000000
 export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
+
+# https://github.com/rcaloras/bash-preexec/
+source ~/.bash-preexec.sh
 
 # load everything from $HOME/.bash/ except README.md and directories
 if [[ -d $HOME/.bash/ ]]; then
@@ -38,9 +42,4 @@ if [[ -f $HOME/.bash.secrets ]]; then
   fi
   source $HOME/.bash.secrets
 fi
-
-# set vim as default editor
-vim=/usr/bin/vim
-export EDITOR=$vim
-export VISUAL=$vim
 
