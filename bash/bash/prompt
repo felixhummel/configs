@@ -32,25 +32,25 @@ __fh_prompt() {
     local retcode=$?  # this must be first
 
     # user@host
-    host_color=$GOLD
-    host_prefix="\u@${host_color}\h"
+    local host_color=$GOLD
+    local host_prefix="\u@${host_color}\h"
 
     # check for git
-    local x=""
-    status=$(git status -s 2>/dev/null)  # 4 ms on my box, recurses automatically
+    local x=''
+    local git_stuff=''
+    # using local f***s with "$?". use "namespacing" instead. ^^
+    __fh_current_git_status=$(git status -s 2>/dev/null)  # 4 ms on my box, recurses automatically
     if [[ $? == 0 ]]; then
         # in a git repository
-        branch=$(git branch | grep ^* | sed s/\*\ //)
+        local branch=$(git branch | grep ^* | sed s/\*\ //)
         [[ -z $branch ]] && branch='[NOBRANCH]'
-        branch_color="${PURPLE}"
-        if [[ -z $status ]]; then
+        local branch_color="${PURPLE}"
+        if [[ -z $__fh_current_git_status ]]; then
             branch_color="${GREEN}"
         else
             branch_color="${RED}"
         fi
         git_stuff=" $branch_color${branch}"
-    else
-        git_stuff=""
     fi
 
     # working directory
@@ -62,7 +62,7 @@ __fh_prompt() {
     if [[ $retcode != 0 ]]; then
         uid_color="${RED}"
     fi
-    uid=" ${uid_color}\\\$"
+    local uid=" ${uid_color}\\\$"
 
     # putting it all together
     x="$host_prefix$git_stuff$dir$uid ${CLEAR}"
