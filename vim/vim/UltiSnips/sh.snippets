@@ -15,3 +15,10 @@ snippet die
 die() { echo "$@" 2>&1; exit 1; }
 endsnippet
 
+snippet log
+log() { echo "$@" 2>&1; }
+endsnippet
+
+snippet l
+log "$1"
+endsnippet
