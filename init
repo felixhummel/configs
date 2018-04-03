@@ -13,6 +13,20 @@ The obvious alternative would be a directory like this::
 - A simple ls does not work.
 - File managers need to display hidden files.
 - Need to type dot when navigating on the commandline.
+
+Nested Files
+============
+Normally tool directories contain an rc file and a directory, e.g.
+
+bash/bash --> ~/.bash
+bash/bashrc --> ~/.bashrc
+
+But xfce4 configs are deeply nested in XDG_CONFIG_HOME (`~/.config`), e.g.
+
+_nested/config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+--> ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
+This is a special case, because I only want files very selectively.
 """
 import os
 from os import listdir, chdir
@@ -21,7 +35,7 @@ import shutil
 import subprocess
 from optparse import OptionParser
 
-IGNORED_DIRS = ['.git', 'kde-shortcuts']
+IGNORED_DIRS = ['.git', '_nested']
 
 # everything happens relative to this file's parent dir
 here = abspath(dirname(__file__))
@@ -43,9 +57,8 @@ def run(cmd):
     p.wait()
 
 
-def makelink(src, dest_filename):
+def makelink(src, dest):
     "Think ln -s"
-    dest = join(HOME, dest_filename)
     log.debug('link %s %s', src, dest)
     if OVERRIDE_PREVIOUS:
         if os.path.islink(dest):
@@ -62,7 +75,7 @@ def makelink(src, dest_filename):
         if e.strerror != 'File exists':
             raise
         else:
-            log.info('%s: %s' % (e.strerror, src))
+            log.info('%s: %s' % (e.strerror, dest))
 
 
 def handle_tool(tooldir):
@@ -81,7 +94,8 @@ def handle_tool(tooldir):
     files = listdir(tooldir)
     for fname in files:
         src = join(tooldir, fname)
-        makelink(src, '.'+fname)
+        dest = join(HOME, '.'+fname)
+        makelink(src, dest)
 
 
 def get_tool_dirs():
@@ -109,10 +123,36 @@ def gen_git_config(email=None, name=None):
         log.info("Wrote {0}".format(path))
 
 
+def handle_nested():
+    log.info('handling nested files')
+    for root, dirs, files in os.walk('_nested'):
+        for f in files:
+            walkparts = [root] + dirs + [f]
+            src = os.path.join(*walkparts)
+            log.debug('src: %s', src)
+            parts = src.split('/')
+            log.debug('parts: %s', parts)
+            tmp = os.path.join(*parts[1:])
+            log.debug('tmp: %s', tmp)
+            dest = os.path.join(HOME, '.' + tmp)
+            # _nested/foo/bar --> .foo/bar (note the dot)
+            log.info('{0} --> {1}'.format(src, dest))
+            # create directory if it does not exist
+            mkdir_p(os.path.dirname(dest))
+            makelink(src, dest)
+
+
+def mkdir_p(dirname):
+    log.debug('mkdir_p(%s)', dirname)
+    if not isdir(dirname):
+        os.makedirs(dirname)
+
+
 def main():
     run('git submodule update --init')
     for tool in get_tool_dirs():
         handle_tool(tool)
+    handle_nested()
 
 
 if __name__ == '__main__':
@@ -145,8 +185,7 @@ if __name__ == '__main__':
     OVERRIDE_PREVIOUS = options.force
     # if we may need backups, create BACKUP_DIR
     if OVERRIDE_PREVIOUS:
-        if not isdir(BACKUP_DIR):
-            os.makedirs(BACKUP_DIR)
+        mkdir_p(BACKUP_DIR)
     main()
     if not options.skip_git:
         gen_git_config(options.email, options.name)
