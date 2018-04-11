@@ -68,4 +68,13 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 " see :help ft-bash-syntax
 let g:is_bash	= 1
 
+augroup felix
+  " Jump to last cursor position unless it's invalid or in an event handler
+  " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
+
 " vim: set ft=vim 
