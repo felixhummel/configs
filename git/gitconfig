@@ -50,6 +50,9 @@
   changed = green
   untracked = cyan
 
+[diff]
+  renames = true
+
 [merge]
   tool = kdiff3
 
