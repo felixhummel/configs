@@ -12,3 +12,10 @@ nmap <M-RIGHT> :bn<cr>
 " use C-Space for omnicompletion
 inoremap <Nul> <C-x><C-o>
 
+" comment leader style
+map <Leader>c :Commentary<CR>
+" comment pycharm style
+" to get key sequence: in insert mode type <C-v><M-/>
+" https://stackoverflow.com/a/9051932
+map / :Commentary<CR>
+
