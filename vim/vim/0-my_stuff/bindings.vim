@@ -15,7 +15,7 @@ inoremap <Nul> <C-x><C-o>
 " comment leader style
 map <Leader>c :Commentary<CR>
 " comment pycharm style
-" to get key sequence: in insert mode type <C-v><M-/>
+" to get key sequence: in insert mode type <C-v><C-/>
 " https://stackoverflow.com/a/9051932
-map / :Commentary<CR>
+map  :Commentary<CR>
 
