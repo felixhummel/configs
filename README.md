@@ -6,7 +6,7 @@ cd $HOME
 git clone https://github.com/felixhummel/configs.git
 cd configs
 ./init --email EMAIL --name "NAME" --force
-vim +PlugInstall +qall
+./pluginstall
 exec $SHELL
 ```
 
