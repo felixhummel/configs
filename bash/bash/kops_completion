@@ -1,0 +1,1 @@
+hash kops 2>/dev/null && source <(kops completion bash)
