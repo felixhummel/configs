@@ -1,0 +1,9 @@
+#!/bin/bash
+# https://github.com/nodejs/help/wiki/Installation
+
+NODEJS_HOME=/usr/local/lib/nodejs/bin
+if [[ -d $NODEJS_HOME ]]; then
+  export NODEJS_HOME
+  export PATH=$PATH:$NODEJS_HOME
+fi
+
