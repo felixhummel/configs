@@ -55,6 +55,7 @@ set noswapfile  " disable swapfiles
 
 " NERDTree
 let g:NERDTreeWinPos="right"
+let NERDTreeShowHidden=1
 map <F10> :NERDTreeToggle<CR>
 " http://stackoverflow.com/questions/1447334/how-do-you-add-nerdtree-to-your-vimrc
 "autocmd VimEnter * NERDTree
