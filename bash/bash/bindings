@@ -13,8 +13,4 @@ if [[ $? == 0 ]]; then
   # ipython style history
   bind '"\e[A":history-search-backward'
   bind '"\e[B":history-search-forward'
-
-  # fast cd .. :)
-  bind '"\e[1;5A": "pushd .. &> /dev/null\n"'
-  bind '"\e[1;5B": "popd &> /dev/null\n"'
 fi
