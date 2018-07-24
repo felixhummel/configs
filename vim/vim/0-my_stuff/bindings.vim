@@ -19,3 +19,5 @@ map <Leader>c :Commentary<CR>
 " https://stackoverflow.com/a/9051932
 map  :Commentary<CR>
 
+" remove search highlight on enter in normal mode
+nnoremap <CR> :nohlsearch<CR><CR>
