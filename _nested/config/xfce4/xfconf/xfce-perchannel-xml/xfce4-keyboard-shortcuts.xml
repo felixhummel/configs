@@ -56,6 +56,8 @@
       <property name="&lt;Super&gt;r" type="string" value="xfrun4"/>
       <property name="&lt;Super&gt;q" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Super&gt;z" type="string" value="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"/>
+      <property name="&lt;Super&gt;Page_Down" type="string" value="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"/>
+      <property name="&lt;Super&gt;Page_Up" type="string" value="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"/>
       <property name="&lt;Primary&gt;Print" type="string" value="xfce4-screenshooter -rc"/>
     </property>
   </property>
