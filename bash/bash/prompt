@@ -68,7 +68,7 @@ __fh_prompt() {
     x="$host_prefix$git_stuff$dir$uid ${CLEAR}"
 
     # check for venv
-    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}venv${CLEAR} $x"
+    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}v${CLEAR} $x"
 
     PS1=$x
 }
