@@ -65,12 +65,7 @@ __fh_prompt() {
     local uid=" ${uid_color}\\\$"
 
     # putting it all together
-    x="$host_prefix$git_stuff$dir$uid ${CLEAR}"
-
-    # check for venv
-    [[ -n $VIRTUAL_ENV || $VIRTUAL_ENV == ' ' ]] && x="${WHITE}v${CLEAR} $x"
-
-    PS1=$x
+    PS1="$host_prefix$git_stuff$dir$uid ${CLEAR}"
 }
 
 precmd_functions+=(__fh_prompt)
