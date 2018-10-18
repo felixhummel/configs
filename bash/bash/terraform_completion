@@ -1,0 +1,2 @@
+
+hash terraform 2>/dev/null && complete -C /usr/local/bin/terraform terraform
