@@ -1,1 +1,1 @@
-hash 2>/dev/null minikube && source <(minikube completion bash)
+hash 2>/dev/null minikube && source <(minikube completion bash 2>/dev/null)
