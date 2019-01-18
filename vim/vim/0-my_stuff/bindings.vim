@@ -21,3 +21,10 @@ map  :Commentary<CR>
 
 " remove search highlight on enter in normal mode
 nnoremap <CR> :nohlsearch<CR><CR>
+
+" goto file, create if not exists
+nnoremap gF :e <cfile><CR>
+" same in split
+nnoremap gs :split <cfile><CR>
+" same in vsplit
+nnoremap gv :vnew <cfile><CR>
