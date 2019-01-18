@@ -34,12 +34,14 @@ if [[ -d $HOME/.bash/ ]]; then
     done
 fi
 
-# also load secrets
-if [[ -f $HOME/.bash.secrets ]]; then
-  mode=$(stat -c %a ~/.bash.secrets)
-  if [[ $mode != 600 ]]; then
-    echo "WARNING $HOME/.bash.secrets has mode $mode" >&2
-  fi
-  source $HOME/.bash.secrets
+# also load local stuff
+if [[ -d $HOME/.bash.local ]]; then
+  for f in $HOME/.bash.local/*; do
+    mode=$(stat -c %a $f)
+    if [[ $mode != 600 ]]; then
+      echo "WARNING $f has mode $mode" >&2
+    fi
+    source $f
+  done
 fi
 
