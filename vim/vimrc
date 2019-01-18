@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'  " plug help
 Plug 'felixhummel/sahara'  " color scheme
 Plug 'editorconfig/editorconfig-vim'
-Plug 'hashivim/vim-terraform'
 Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'  " default snippets
 Plug 'tpope/vim-fugitive'
@@ -28,6 +27,9 @@ Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
 Plug 'robbles/logstash.vim'
 Plug 'tpope/vim-commentary'
+Plug 'hashivim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
 call plug#end()
 
 " XXX somehow make this file recognize, if terminal is dark or light
