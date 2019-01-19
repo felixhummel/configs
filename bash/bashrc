@@ -35,8 +35,8 @@ if [[ -d $HOME/.bash/ ]]; then
 fi
 
 # also load local stuff
-if [[ -d $HOME/.bash.local ]]; then
-  for f in $HOME/.bash.local/*; do
+if [[ -z $HOME/.bash.local/*.sh ]]; then
+  for f in $HOME/.bash.local/*.sh; do
     mode=$(stat -c %a $f)
     if [[ $mode != 600 ]]; then
       echo "WARNING $f has mode $mode" >&2
