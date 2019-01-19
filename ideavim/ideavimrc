@@ -1,1 +1,3 @@
 set hlsearch
+" yank to OS clipboard (secondary)
+set clipboard+=unnamedplus
