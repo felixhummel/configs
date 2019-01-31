@@ -35,7 +35,7 @@ if [[ -d $HOME/.bash/ ]]; then
 fi
 
 # also load local stuff
-if [[ -z $HOME/.bash.local/*.sh ]]; then
+if [[ -n $HOME/.bash.local/*.sh ]]; then
   for f in $HOME/.bash.local/*.sh; do
     mode=$(stat -c %a $f)
     if [[ $mode != 600 ]]; then
