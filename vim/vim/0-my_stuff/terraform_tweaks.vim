@@ -1,5 +1,5 @@
 let g:terraform_align=1
-let g:terraform_commentstring='//%s'
+let g:terraform_commentstring='# %s'
 
 autocmd VimEnter *.tf call TerraformMappings()
 
