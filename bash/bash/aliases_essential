@@ -1,3 +1,14 @@
+if ! type -t _completion_loader >/dev/null; then
+    _completion_loader ()
+    {
+        local compfile=./completions;
+        [[ $BASH_SOURCE == */* ]] && compfile="${BASH_SOURCE%/*}/completions";
+        compfile+="/${1##*/}";
+        [[ -f "$compfile" ]] && . "$compfile" &> /dev/null && return 124;
+        complete -F _minimal "$1" && return 124
+    }
+fi
+
 # essentials
 alias ls="ls --color=auto"
 alias l="ls -l"
