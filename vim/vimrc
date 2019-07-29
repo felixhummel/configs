@@ -48,8 +48,12 @@ set hlsearch  " highlight all search terms
 set wildmode=longest:list  " bash-like tab completion
 set tabpagemax=99  " give me many tabs (not just 10 of them)
 set tabstop=2  " see :retab
-set softtabstop=2 " compatability with mix of tabs and spaces
-set shiftwidth=2 " for >> and <<
+set softtabstop=2  " compatability with mix of tabs and spaces
+set shiftwidth=2  " for >> and <<
+
+" persistent undo
+set undofile
+set undodir=~/.vim/undodir
 
 " completion
 set complete=.,w,b,u,t
