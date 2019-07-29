@@ -35,7 +35,7 @@ if [[ -d $HOME/.bash/ ]]; then
 fi
 
 # also load local stuff
-if compgen -G "$HOME/.bash.local/*.sh"; then
+if compgen -G "$HOME/.bash.local/*.sh" >/dev/null; then
   for f in $HOME/.bash.local/*.sh; do
     mode=$(stat -c %a $f)
     if [[ $mode != 600 ]]; then
