@@ -47,6 +47,9 @@
 [color "diff"]
   meta = yellow
 
+[color "grep"]
+  match = 10 22
+
 [color "status"]
   added = yellow
   changed = green
