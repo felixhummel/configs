@@ -59,7 +59,7 @@
   renames = true
 
 [merge]
-  tool = kdiff3
+  tool = vimdiff
 
 [url "https://"]
   insteadOf = git://
