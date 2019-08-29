@@ -39,4 +39,7 @@ EOF
 cat <<EOF >> ~/.vimrc
 set mouse=
 EOF
+
+exec $SHELL
+
 ```
