@@ -1,0 +1,34 @@
+#!/bin/bash
+# Convention: if there's an EKS then there's a ~/.kube/${PROFILE}.yml too
+
+# main function
+awsprofile() {
+  profile=$1
+  export AWS_PROFILE=$profile KUBECONFIG=~/.kube/${profile}.yml
+}
+
+# list profiles from ~/.aws/credentials
+_list_awsprofiles() {
+  python3 <<'EOF'
+import configparser
+import pathlib
+path = pathlib.PosixPath('~/.aws/credentials').expanduser()
+config = configparser.ConfigParser()
+config.read(path)
+print(' '.join(config.sections()))
+EOF
+}
+
+# completion
+_awsprofile()
+{
+  _script_commands=$(_list_awsprofiles)
+
+  local cur prev
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=( $(compgen -W "${_script_commands}" -- ${cur}) )
+
+  return 0
+}
+complete -o nospace -F _awsprofile awsprofile
