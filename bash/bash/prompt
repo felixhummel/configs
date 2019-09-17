@@ -1,12 +1,5 @@
 #!/bin/bash
-# http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux
-# tested with DejaVu Sans Mono Book 11 on 27" at 1920x1080
-
-# https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
-ansi256() {
-    local num=$1
-    echo -e "\[\e[38;5;${num}m\]"
-}
+# shellcheck disable=SC2034
 
 # some color definitions
 CLEAR="\[\e[0m\]"
@@ -28,30 +21,33 @@ LIGHT_CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 GOLD="\[\e[38;5;136m\]"
 
+__fh_prompt_git_stuff() {
+    local branch
+    local branch_color
+    local git_status
+    local result=''
+    # check if we're in a git repo
+    # 4 ms on my box, recurses automatically
+    git_status=$(git status -s 2>/dev/null)
+    if [[ $? == 0 ]]; then
+        branch=$(git branch | grep '^*' | sed s/\*\ //)
+        [[ -z $branch ]] && branch='[NOBRANCH]'
+        if [[ -z $git_status ]]; then
+            branch_color="${GREEN}"
+        else
+            branch_color="${RED}"
+        fi
+        result=" ${branch_color}${branch}"
+    fi
+    echo "$result"
+}
+
 __fh_prompt() {
     local retcode=$?  # this must be first
 
     # user@host
     local host_color=$GOLD
     local host_prefix="\u@${host_color}\h"
-
-    # check for git
-    local x=''
-    local git_stuff=''
-    # using local f***s with "$?". use "namespacing" instead. ^^
-    __fh_current_git_status=$(git status -s 2>/dev/null)  # 4 ms on my box, recurses automatically
-    if [[ $? == 0 ]]; then
-        # in a git repository
-        local branch=$(git branch | grep ^* | sed s/\*\ //)
-        [[ -z $branch ]] && branch='[NOBRANCH]'
-        local branch_color="${PURPLE}"
-        if [[ -z $__fh_current_git_status ]]; then
-            branch_color="${GREEN}"
-        else
-            branch_color="${RED}"
-        fi
-        git_stuff=" $branch_color${branch}"
-    fi
 
     # working directory
     local dir=" ${GREEN}\w"
@@ -65,7 +61,7 @@ __fh_prompt() {
     local uid=" ${uid_color}\\\$"
 
     # putting it all together
-    PS1="$host_prefix$git_stuff$dir$uid ${CLEAR}"
+    PS1="${host_prefix}$(__fh_prompt_git_stuff)${dir}${uid} ${CLEAR}"
 }
 
 precmd_functions+=(__fh_prompt)
@@ -76,6 +72,7 @@ export PS4="▬ "
 
 # debug
 # http://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup
-#export PS4="▬ $(date "+.%N")\011 "
+# export PS4='▬ $(date "+.%N")\011 '
+# source prompt
 
 # vim: set ft=sh :
