@@ -25,11 +25,14 @@ __fh_prompt_git_stuff() {
     local branch
     local branch_color
     local git_status
-    local result=''
+    # ignore $HOME
+    [[ $PWD == $HOME ]] && return
     # check if we're in a git repo
     # 4 ms on my box, recurses automatically
     git_status=$(git status -s 2>/dev/null)
-    if [[ $? == 0 ]]; then
+    if [[ $? != 0 ]]; then
+        return
+    else
         branch=$(git branch | grep '^*' | sed s/\*\ //)
         [[ -z $branch ]] && branch='[NOBRANCH]'
         if [[ -z $git_status ]]; then
@@ -37,9 +40,8 @@ __fh_prompt_git_stuff() {
         else
             branch_color="${RED}"
         fi
-        result=" ${branch_color}${branch}"
+        echo " ${branch_color}${branch}"
     fi
-    echo "$result"
 }
 
 __fh_prompt() {
