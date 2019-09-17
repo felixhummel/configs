@@ -22,9 +22,6 @@ export HISTSIZE=1000000
 export HISTFILESIZE=2000000
 export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
 
-# https://github.com/rcaloras/bash-preexec/
-source ~/.bash-preexec.sh
-
 # load everything from $HOME/.bash/ except README.md and directories
 if [[ -d $HOME/.bash/ ]]; then
     for f in $HOME/.bash/*; do

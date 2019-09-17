@@ -64,7 +64,7 @@ __fh_prompt() {
     PS1="${host_prefix}$(__fh_prompt_git_stuff)${dir}${uid} ${CLEAR}"
 }
 
-precmd_functions+=(__fh_prompt)
+PROMPT_COMMAND=__fh_prompt
 
 # TODO find out why xfce4-terminal fails to render
 #   "${LIGHT_PURPLE}+ ${CLEAR}"

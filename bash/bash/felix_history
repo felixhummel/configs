@@ -1,9 +1,0 @@
-__fh_felix_history() {
-    # hackety hack, then document (vim `:vsplit ~/.felix_history`)
-    # see also https://debian-administration.org/article/543/Bash_eternal_history
-    HISTTIMEFORMAT='' history 1 | awk '{$1="";print}' | sed -e 's/^[[:space:]]*//' >> ~/.felix_history
-}
-
-preexec_functions+=(__fh_felix_history)
-
-# vim: set ft=sh :
