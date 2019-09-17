@@ -1,3 +1,0 @@
-# disable bell
-export LESS=-Q
-
