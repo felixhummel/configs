@@ -12,10 +12,11 @@ _list_awsprofiles() {
   python3 <<'EOF'
 import configparser
 import pathlib
-path = pathlib.PosixPath('~/.aws/credentials').expanduser()
+path = pathlib.PosixPath('~/.aws/config').expanduser()
 config = configparser.ConfigParser()
 config.read(path)
-print(' '.join(config.sections()))
+profiles = [x for x in config.sections() if x.startswith('profile')]
+print(' '.join([x.split()[1] for x in profiles]))
 EOF
 }
 
