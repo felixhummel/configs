@@ -44,6 +44,11 @@ __fh_prompt_git_stuff() {
     fi
 }
 
+__fh_prompt_terraform() {
+    local tf_env_file=$PWD/.terraform/environment
+    [[ -f $tf_env_file ]] && echo " $GOLD[$(<$tf_env_file)]"
+}
+
 __fh_prompt() {
     local retcode=$?  # this must be first
 
@@ -63,7 +68,10 @@ __fh_prompt() {
     local uid=" ${uid_color}\\\$"
 
     # putting it all together
-    PS1="${host_prefix}$(__fh_prompt_git_stuff)${dir}${uid} ${CLEAR}"
+    PS1="${host_prefix}$(__fh_prompt_git_stuff)$(__fh_prompt_terraform)${dir}${uid} ${CLEAR}"
+
+    # always append history
+    history -a
 }
 
 PROMPT_COMMAND=__fh_prompt
