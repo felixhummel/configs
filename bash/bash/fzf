@@ -1,3 +1,3 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-FZF_CTRL_R_OPTS="--preview-window down:3:hidden:wrap"
+FZF_CTRL_R_OPTS="--preview-window down:3:hidden:wrap --bind tab:accept"
