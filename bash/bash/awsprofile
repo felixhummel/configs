@@ -1,10 +1,19 @@
 #!/bin/bash
-# Convention: if there's an EKS then there's a ~/.kube/${PROFILE}.yml too
+# Conventions:
+# - if there's an EKS then there's a ~/.kube/${profile}.yml too
+# - if $profile is "foo_dev", then switch to terraform workspace "dev"
 
 # main function
+# configures aws, kubectl and terraform
 awsprofile() {
-  profile=$1
+  local profile=$1
+  local env=$(echo $profile | cut -d_ -f2)
   export AWS_PROFILE=$profile KUBECONFIG=~/.kube/${profile}.yml
+  test \
+    -f .terraform/environment \
+    -a $(< .terraform/environment) != $env \
+    && terraform workspace select $env \
+    || true
 }
 
 # list profiles from ~/.aws/credentials
