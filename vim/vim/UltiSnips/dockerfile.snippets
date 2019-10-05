@@ -1,0 +1,19 @@
+snippet py
+FROM python:3.7-stretch
+
+LABEL foo=bar
+# change this to invalidate the cache in pipeline `date +%s`
+ARG docker-cache-timestamp=1569692785
+
+ARG UID=2000
+ARG GID=2000
+ENV PYTHONPATH=/opt/project
+
+RUN useradd --uid $UID --base-dir /home --create-home --home-dir /home/app app
+
+RUN pip install -U pip setuptools
+
+RUN apt-get update && apt-get --yes install \
+        bash-completion \
+    && rm -rf /var/lib/apt/lists/*
+endsnippet
