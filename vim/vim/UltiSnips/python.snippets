@@ -7,3 +7,11 @@ snippet #!
 #!/usr/bin/env python
 
 endsnippet
+
+snippet log
+import logging
+
+logging.basicConfig(level=os.environ.get('LOGLEVEL', 'WARNING').upper())
+log = logging.getLogger()
+
+endsnippet
