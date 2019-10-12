@@ -4,6 +4,8 @@ map <M-Down> :m.+1<CR>
 " scroll without moving the cursor with ctrl+up/down
 map <C-Down> 
 map <C-Up> 
+" remove search highlight on enter in normal mode
+nnoremap <CR> :nohlsearch<CR><CR>
 
 " jump between files (see :h gf)
 nmap <M-LEFT> :bN<cr>
@@ -18,9 +20,6 @@ map <Leader>c :Commentary<CR>
 " to get key sequence: in insert mode type <C-v><C-/>
 " https://stackoverflow.com/a/9051932
 map  :Commentary<CR>
-
-" remove search highlight on enter in normal mode
-nnoremap <CR> :nohlsearch<CR><CR>
 
 " goto file, create if not exists
 nnoremap gF :e <cfile><CR>
