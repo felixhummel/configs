@@ -30,6 +30,8 @@ Plug 'tpope/vim-commentary'
 Plug 'hashivim/vim-terraform'
 " Plug 'vim-syntastic/syntastic'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set background=dark
@@ -90,3 +92,8 @@ augroup felix
 augroup END
 
 " vim: set ft=vim 
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
