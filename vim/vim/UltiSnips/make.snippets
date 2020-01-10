@@ -1,5 +1,5 @@
-snippet x
-.PHONY: x
-x:
-	cmd
+snippet .
+.PHONY: ${1}
+$1:
+	$0
 endsnippet
