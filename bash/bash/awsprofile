@@ -9,9 +9,8 @@ awsprofile() {
   local profile=$1
   local env=$(echo $profile | cut -d_ -f2)
   export AWS_PROFILE=$profile KUBECONFIG=~/.kube/${profile}.yml
-  test \
-    -f .terraform/environment \
-    -a $(< .terraform/environment) != $env \
+  [[ -f .terraform/environment ]] \
+    && [[ $(< .terraform/environment) != $env ]] \
     && terraform workspace select $env \
     || true
 }
