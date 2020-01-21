@@ -30,16 +30,7 @@ git submodule update --init
 # Absolute Essentials
 Don't want/need all the configs on a box? Here's the bare minimum:
 ```
-cat <<'EOF' >> ~/.bashrc
-# check if bind can be run without error
-[[ $(bind 2>&1) == '' ]]
-# apply bindings only if we have a terminal
-if [[ $? == 0 ]]; then
-  # ipython style history
-  bind '"\e[A":history-search-backward'
-  bind '"\e[B":history-search-forward'
-fi
-EOF
+curl https://raw.githubusercontent.com/felixhummel/configs/master/readline/inputrc > ~/.inputrc
 
 cat <<EOF >> ~/.vimrc
 set mouse=
