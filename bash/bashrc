@@ -24,7 +24,7 @@ export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:
 
 # if we're non-interactive, then we're done
 # =========================================
-[[ $- != *i* ]] >&2 && return
+[[ -z $PS1 ]] >&2 && return
 # =========================================
 
 # load everything from $HOME/.bash/ except README.md and directories
