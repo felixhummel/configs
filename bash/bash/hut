@@ -1,1 +1,0 @@
-hash hut 2>/dev/null && eval "$(_HUT_COMPLETE=source hut)"
