@@ -10,8 +10,9 @@ endsnippet
 
 snippet log
 import logging
+import os
 
-logging.basicConfig(level=os.environ.get('LOGLEVEL', 'WARNING').upper())
+logging.basicConfig(level=os.environ.get('LOGLEVEL', 'INFO').upper())
 log = logging.getLogger()
 
 endsnippet
