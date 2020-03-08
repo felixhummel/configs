@@ -7,9 +7,9 @@ map <C-Up> 
 " remove search highlight on enter in normal mode
 nnoremap <CR> :nohlsearch<CR><CR>
 
-" jump between files (see :h gf)
-nmap <M-LEFT> :bN<cr>
-nmap <M-RIGHT> :bn<cr>
+" jump between errors (see :h quickfix)
+nmap <M-LEFT> :cprev<cr>
+nmap <M-RIGHT> :cnext<cr>
 
 " use C-Space for omnicompletion
 inoremap <Nul> <C-x><C-o>
