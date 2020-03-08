@@ -99,3 +99,6 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" don't complete on every dot entered (keep fast pasting in insert mode)
+let g:jedi#popup_on_dot = 0
