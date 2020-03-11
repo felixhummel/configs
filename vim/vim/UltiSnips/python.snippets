@@ -16,3 +16,33 @@ logging.basicConfig(level=os.environ.get('LOGLEVEL', 'INFO').upper())
 log = logging.getLogger()
 
 endsnippet
+
+snippet django-migration
+def forward(apps, schema_editor):
+    Foo = apps.get_model('myapp', 'Foo')
+    Foo.objects.create(id=1, name='hello')
+
+
+def backward(apps, schema_editor):
+    pass
+
+
+class Migration(migrations.Migration):
+    operations = [
+        migrations.RunPython(forward, backward),
+        # Example: new field "hash" based on data ->> hash
+        # Flow: NULL UNIQUE --> compute --> NOT NULL UNIQUE
+        migrations.AddField(
+            model_name='foo',
+            name='hash',
+            field=models.CharField(max_length=40, unique=True, null=True),
+        ),
+        migrations.RunSQL("UPDATE foo SET hash = (data ->> hash :: TEXT)"),
+        migrations.RunSQL("DELETE FROM foo WHERE hash IS NULL"),
+        migrations.AlterField(
+            model_name='foo',
+            name='hash',
+            field=models.CharField(max_length=40, unique=True),
+        ),
+    ]
+endsnippet
