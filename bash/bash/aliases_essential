@@ -18,6 +18,7 @@ alias df="df -h"
 alias du="du -h"
 alias wget="wget -c"  # continue flag
 alias iotop="sudo iotop"
+alias log="$EDITOR LOG/$(date +%m-%d).md"
 
 # net
 alias pingheise="ping www.heise.de"
