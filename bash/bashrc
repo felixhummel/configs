@@ -47,3 +47,4 @@ if compgen -G "$HOME/.bash.local/*.sh" >/dev/null; then
   done
 fi
 
+[[ -f ~/.bash/puddl ]] && source ~/.bash/puddl

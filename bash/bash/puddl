@@ -1,0 +1,7 @@
+# Namespaces are one honking great idea -- let's do more of those!
+export PUDDL_HOME=~/puddl
+
+if [[ -d $PUDDL_HOME ]]; then
+  echo $PATH | grep -qv $PUDDL_HOME && export PATH=$PATH:$PUDDL_HOME/bin
+  eval "$(_PUDDL_COMPLETE=source puddl)"
+fi
