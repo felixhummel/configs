@@ -16,6 +16,7 @@ alias la="ls -la"
 alias lt="ls -lt"
 alias df="df -h"
 alias du="du -h"
+alias m="mutt"
 alias wget="wget -c"  # continue flag
 alias iotop="sudo iotop"
 alias log="$EDITOR LOG/$(date +%m-%d).md"
