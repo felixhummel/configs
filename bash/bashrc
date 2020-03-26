@@ -22,6 +22,9 @@ export HISTSIZE=1000000
 export HISTFILESIZE=2000000
 export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
 
+# ignore .egg-info when completing
+export FIGNORE=".egg-info:$FIGNORE"
+
 # if we're non-interactive, then we're done
 # =========================================
 [[ -z $PS1 ]] >&2 && return
