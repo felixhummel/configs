@@ -43,7 +43,7 @@ set history=9000
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set termencoding=utf-8
 set viminfo='20,\"50
-set wildignore=*.pyc,*.egg-info
+set wildignore=*.pyc,*.egg-info/
 set modeline  " execute custom modelines in files
 set laststatus=2  " always display status line
 set mouse-=a  " disable mouse
