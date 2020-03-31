@@ -9,6 +9,7 @@
   d = diff --color
   ds = diff --color --staged
   graph = log --graph --pretty=oneline --abbrev-commit
+  jo = commit -m 'note' --
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
   # hack to remove timestamp offset http://stackoverflow.com/questions/7853332/git-log-date-formats
