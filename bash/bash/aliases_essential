@@ -20,13 +20,15 @@ alias m="mutt"
 alias wget="wget -c"  # continue flag
 alias iotop="sudo iotop"
 log() {
-  if [[ $(basename $(readlink -m .)) == "LOG" ]]; then
-    # skip self
+  target=${1:-}
+  [[ -z "$target" ]] && target=.
+  # skip self
+  if [[ $(basename $(readlink -m $target)) == "LOG" ]]; then
     f=$(date +%m-%d).md
   else
     f=LOG/$(date +%m-%d).md
   fi
-  $EDITOR $f
+  $EDITOR $target/$f
 }
 
 # net
