@@ -8,6 +8,8 @@
   co = checkout
   d = diff --color
   ds = diff --color --staged
+  # https://spin.atomicobject.com/2018/04/05/fuzzy-find-git-add/
+  fza = "!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
   graph = log --graph --pretty=oneline --abbrev-commit
   jo = commit -m 'note' --
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
