@@ -76,10 +76,6 @@ __fh_prompt() {
 
 PROMPT_COMMAND=__fh_prompt
 
-# TODO find out why xfce4-terminal fails to render
-#   "${LIGHT_PURPLE}+ ${CLEAR}"
-export PS4="▬ "
-
 # debug
 # http://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup
 # export PS4='▬ $(date "+.%N")\011 '

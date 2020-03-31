@@ -1,3 +1,4 @@
+[[ ${FH_BASH_PROFILE:-0} != 0 ]] && export PS4='▬ $(date "+.%N")\011 '
 # include binaries from $HOME/bin. To add more, link them in $HOME/bin/
 # $HOME/.bin contains stuff I don't want to publish (yet)
 export PATH=$HOME/.bin:$HOME/bin:$PATH:$HOME/.local/bin
