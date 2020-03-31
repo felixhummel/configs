@@ -19,7 +19,15 @@ alias du="du -h"
 alias m="mutt"
 alias wget="wget -c"  # continue flag
 alias iotop="sudo iotop"
-alias log="$EDITOR LOG/$(date +%m-%d).md"
+log() {
+  if [[ $(basename $(readlink -m .)) == "LOG" ]]; then
+    # skip self
+    f=$(date +%m-%d).md
+  else
+    f=LOG/$(date +%m-%d).md
+  fi
+  $EDITOR $f
+}
 
 # net
 alias pingheise="ping www.heise.de"
