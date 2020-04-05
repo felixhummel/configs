@@ -11,7 +11,6 @@
   # https://spin.atomicobject.com/2018/04/05/fuzzy-find-git-add/
   fza = "!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
   graph = log --graph --pretty=oneline --abbrev-commit
-  jo = commit -m 'note' --
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
   # hack to remove timestamp offset http://stackoverflow.com/questions/7853332/git-log-date-formats
@@ -33,6 +32,7 @@
   ss = status -uno
   outgoing = log origin/master..HEAD
   vd = difftool -y --tool=vimdiff
+  x = commit -m 'quicksave' --
 
 [branch]
   autosetupmerge = always
