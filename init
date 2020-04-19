@@ -107,9 +107,9 @@ def gen_git_config(email=None, name=None):
     path = join(HOME, '.gitconfig.d', 'user')
 
     if email is None:
-        email = raw_input("git email: ")
+        email = input("git email: ")
     if name is None:
-        name = raw_input("git name: ")
+        name = input("git name: ")
 
     cfg = """\
 [user]
