@@ -104,3 +104,6 @@ let g:fzf_action = {
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#popup_select_first = 0
+
+
+autocmd BufWritePost */LOG/*.md execute '!cd $(dirname %) && git add % && git commit -m quicksave -- %'

@@ -20,7 +20,7 @@ alias m="mutt"
 alias wget="wget -c"  # continue flag
 alias iotop="sudo iotop"
 log() {
-  target=${1:-}
+  local target=${1:-}
   [[ -z "$target" ]] && target=.
   # skip self
   if [[ $(basename $(readlink -m $target)) == "LOG" ]]; then
