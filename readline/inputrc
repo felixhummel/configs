@@ -3,6 +3,8 @@ $include /etc/inputrc
 # arrow up/down for prefix-based history
 "\e[A":history-search-backward
 "\e[B":history-search-forward
+"\C-j":history-search-forward
+"\C-k":history-search-backward
 
 # run this to print a keyseq (see man 3 readline)
 # cat -v | sed 's;\^\[;\\e;'
