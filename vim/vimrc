@@ -106,4 +106,4 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#popup_select_first = 0
 
 
-autocmd BufWritePost */LOG/*.md execute '!cd $(dirname %) && git add % && git commit -m quicksave -- %'
+autocmd BufWritePost */LOG/*.md silent execute '!cd $(dirname %) && git status -s && git add $(basename %) && git commit -qm log -- $(basename %) >/dev/null'
