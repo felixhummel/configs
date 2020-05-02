@@ -51,7 +51,7 @@ __fh_prompt_terraform() {
 
 __fh_prompt_jobs() {
     local job_count=$(jobs -p | wc -l)
-    if [[ $job_count > 2 ]]; then
+    if [[ $job_count > 1 ]]; then
         echo
         jobs -l
     fi
