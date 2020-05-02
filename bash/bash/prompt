@@ -49,6 +49,14 @@ __fh_prompt_terraform() {
     [[ -f $tf_env_file ]] && echo " $GOLD[$(<$tf_env_file)]"
 }
 
+__fh_prompt_jobs() {
+    local job_count=$(jobs -p | wc -l)
+    if [[ $job_count > 2 ]]; then
+        echo
+        jobs -l
+    fi
+}
+
 __fh_prompt() {
     local retcode=$?  # this must be first
 
@@ -69,6 +77,10 @@ __fh_prompt() {
 
     # putting it all together
     PS1="${host_prefix}$(__fh_prompt_git_stuff)$(__fh_prompt_terraform)${dir}${uid} ${CLEAR}"
+
+    local job_prompt="$(__fh_prompt_jobs)"
+    [[ -n "$job_prompt" ]] && PS1="${job_prompt}\n$PS1"
+
 
     # always append history
     history -a
