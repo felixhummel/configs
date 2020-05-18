@@ -22,3 +22,5 @@ nnoremap gF :e <cfile><CR>
 nnoremap gs :split <cfile><CR>
 " same in vsplit
 nnoremap gv :vnew <cfile><CR>
+
+set iskeyword+=-
