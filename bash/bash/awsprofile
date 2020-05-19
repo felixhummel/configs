@@ -6,7 +6,12 @@
 # main function
 # configures aws, kubectl and terraform
 awsprofile() {
-  local profile=$1
+  local profile
+  if [[ $# == 1 ]]; then
+    profile=$1
+  else
+    profile=$(_list_awsprofiles | fzf)
+  fi
   local env=$(echo $profile | cut -d_ -f2)
   export AWS_PROFILE=$profile KUBECONFIG=~/.kube/${profile}.yml
   [[ -f .terraform/environment ]] \
@@ -24,7 +29,8 @@ path = pathlib.PosixPath('~/.aws/config').expanduser()
 config = configparser.ConfigParser()
 config.read(path)
 profiles = [x for x in config.sections() if x.startswith('profile')]
-print(' '.join([x.split()[1] for x in profiles]))
+for x in sorted(profiles):
+    print(x.split()[1])
 EOF
 }
 
