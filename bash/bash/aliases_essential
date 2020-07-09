@@ -23,12 +23,10 @@ log() {
   local target=${1:-}
   [[ -z "$target" ]] && target=.
   # skip self
-  if [[ $(basename $(readlink -m $target)) == "LOG" ]]; then
-    f=$(date +%m-%d).md
-  else
-    f=LOG/$(date +%m-%d).md
+  if [[ $(basename $(readlink -m $target)) != "LOG" ]]; then
+    target=$target/LOG
   fi
-  $EDITOR $target/$f
+  vim +"cd $target" $target/$(date +%m-%d).md
 }
 
 # net
