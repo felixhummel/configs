@@ -34,3 +34,6 @@ nnoremap gv :vnew <cfile><CR>
 :nnoremap <leader>g :Rg <C-r><C-w><Enter>
 " run ripgrep
 :nnoremap <leader>? :Rg<Enter>
+
+" Alt+. to insert argument of previous line
+:inoremap . <Esc>k$vByj$pa
