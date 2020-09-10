@@ -1,0 +1,1 @@
+alias tfswitch="tfswitch -b ~/.bin/terraform"
