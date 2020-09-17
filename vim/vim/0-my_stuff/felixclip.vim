@@ -32,4 +32,3 @@ function! FelixClip()
     call s:handle_clipboard_error()
   endtry
 endfunction
-map <C-p> :call FelixClip()<CR>

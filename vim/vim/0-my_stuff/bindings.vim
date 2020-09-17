@@ -4,6 +4,11 @@ map <M-Down> :m.+1<CR>
 " remove search highlight on enter in normal mode
 nnoremap <CR> :nohlsearch<CR><CR>
 
+" Yank to system clipboard with Ctrl+Y
+vnoremap  "+y
+" Paste from system clipboard
+map <C-p> :call FelixClip()<CR>
+
 " jump between errors (see :h quickfix)
 nmap <M-LEFT> :cprev<cr>
 nmap <M-RIGHT> :cnext<cr>
