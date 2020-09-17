@@ -14,7 +14,7 @@ export VISUAL=$vim
 [[ -s /etc/bash_completion ]] && source /etc/bash_completion
 
 # tweak history
-export HISTTIMEFORMAT='%F__%H-%M-%S '
+export HISTTIMEFORMAT='%F__%H-%M-%S $ '
 export HISTCONTROL=ignoreboth
 # if a line has ~100 chars (each 1 byte usually, because utf-8) then 10 lines = 1k
 # max 100 MB --> 100 * 10.000 = 1.000.000 lines
