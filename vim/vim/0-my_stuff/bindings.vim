@@ -1,9 +1,6 @@
 " move lines with alt+up/down
 map <M-Up> :m.-2<CR>
 map <M-Down> :m.+1<CR>
-" scroll without moving the cursor with ctrl+up/down
-map <C-Down> 
-map <C-Up> 
 " remove search highlight on enter in normal mode
 nnoremap <CR> :nohlsearch<CR><CR>
 
