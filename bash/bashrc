@@ -23,6 +23,9 @@ export HISTSIZE=1000000
 export HISTFILESIZE=2000000
 export HISTIGNORE="ls:la:l:cd:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l"
 
+# use custom manpage section "f"
+export MANSECT="1:n:l:8:3:2:3posix:3pm:3perl:3am:5:4:9:6:7:f"
+
 # ignore .egg-info when completing
 export FIGNORE=".egg-info:$FIGNORE"
 
