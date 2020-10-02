@@ -61,8 +61,9 @@ __fh_prompt() {
     local retcode=$?  # this must be first
 
     # user@host
+    local host_name="${FH_PROMPT_HOST:-\h}"
     local host_color=$GOLD
-    local host_prefix="\u@${host_color}\h"
+    local host_prefix="\u@${host_color}${host_name}"
 
     # working directory
     local dir=" ${GREEN}\w"
