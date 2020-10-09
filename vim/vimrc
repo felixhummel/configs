@@ -54,6 +54,7 @@ set tabstop=2  " see :retab
 set softtabstop=2  " compatability with mix of tabs and spaces
 set shiftwidth=2  " for >> and <<
 set iskeyword+=-
+set clipboard=  " keep default shell behavior for clipboard
 
 " persistent undo
 set undofile
