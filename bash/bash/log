@@ -1,0 +1,26 @@
+#!/bin/bash
+
+log() {
+  local dir=${1:-}
+  local dt=$(date +%m-%d)  # e.g. 09-31
+  [[ -z "$dir" ]] && dir=.
+  # use ~/LOG if we are at $HOME
+  [[ "$(readlink -m $dir)" == $HOME ]] && dir=~/LOG
+  local base=$dir/$dt
+  # handle "09-31-something.md"
+  case $(ls $base*.md | wc -l) in
+    0)
+      f=$base.md
+      ;;
+    1)
+      f=$(echo $base*.md)
+      ;;
+    *)
+      echo 'ERROR found multiple files' >&2
+      echo >&2
+      ls $base*.md | xargs -L1 echo "- " >&2
+      exit 1
+      ;;
+  esac
+  vim +"cd $dir" $f
+}
