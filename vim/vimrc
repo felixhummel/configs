@@ -108,3 +108,6 @@ let g:jedi#popup_select_first = 0
 
 " auto-commit log files for ~/LOG
 autocmd BufWritePost ~/LOG/*.md silent execute '!cd $(dirname %) && git status -s >/dev/null && git add $(basename %) && git commit -qm log -- $(basename %) >/dev/null'
+
+" :WD changes to the current file's parent directory
+command! WD :execute 'cd ' . expand('%:p:h')
