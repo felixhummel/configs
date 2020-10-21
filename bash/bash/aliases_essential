@@ -1,14 +1,3 @@
-if ! type -t _completion_loader >/dev/null; then
-  _completion_loader ()
-  {
-    local compfile=./completions;
-    [[ $BASH_SOURCE == */* ]] && compfile="${BASH_SOURCE%/*}/completions";
-    compfile+="/${1##*/}";
-    [[ -f "$compfile" ]] && . "$compfile" &> /dev/null && return 124;
-    complete -F _minimal "$1" && return 124
-  }
-fi
-
 # essentials
 alias ls="ls --color=auto"
 alias l="ls -l"
@@ -28,7 +17,7 @@ alias pinggoogle="ping www.google.com"
 alias g="git"
 # anti-stupidity (I don't use ghostscript and can still call it with \gs)
 alias gs="git s"
-_completion_loader "git"
+_completion_loader git
 complete -o bashdefault -o default -o nospace -F _git g gs
 
 alias vim="command vim -p"  # open files in tabs
