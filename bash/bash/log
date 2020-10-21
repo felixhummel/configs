@@ -6,6 +6,8 @@ log() {
   [[ -z "$dir" ]] && dir=.
   # use ~/LOG if we are at $HOME
   [[ "$(readlink -m $dir)" == $HOME ]] && dir=~/LOG
+  # use ./LOG if present
+  [[ -d ./LOG ]] && dir=$(readlink -m ./LOG)
   local base=$dir/$dt
   # handle "09-31-something.md"
   case $(ls $base*.md | wc -l) in
