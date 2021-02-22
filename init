@@ -35,7 +35,7 @@ import shutil
 import subprocess
 from optparse import OptionParser
 
-IGNORED_DIRS = ['.git', '_nested']
+IGNORED_DIRS = ['.git', '_nested', '_tests']
 
 # everything happens relative to this file's parent dir
 here = abspath(dirname(__file__))
