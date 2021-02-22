@@ -1,9 +1,12 @@
 # Namespaces are one honking great idea -- let's do more of those!
 export PUDDL_HOME=~/puddl
+export PUDDL_BIN=$PUDDL_HOME/puddl/bin
 
 # Bash's startup was too slow, because calling the following is expensive:
 #   _PUDDL_COMPLETE=source_bash puddl
 # Do it once instead and paste the result here.
+
+echo $PATH | tr : '\n' | grep -q $PUDDL_BIN || export PATH=$PATH:$PUDDL_BIN
 
 # only if it does not exist yet and puddl is on PATH
 if ! declare -Ff _puddl_completion >/dev/null && hash puddl 2>/dev/null; then
