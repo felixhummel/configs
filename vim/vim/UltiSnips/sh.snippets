@@ -8,7 +8,7 @@ endsnippet
 
 # see UltiSnips-character-escaping
 snippet here
-here="\$(readlink -m \$(dirname \$0))"
+here=$(cd "\$(dirname "\$0")" && pwd)
 endsnippet
 
 snippet die
