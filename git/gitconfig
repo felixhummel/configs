@@ -13,6 +13,7 @@
   graph = log --graph --pretty=oneline --abbrev-commit
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
+  la = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit --all
   # hack to remove timestamp offset http://stackoverflow.com/questions/7853332/git-log-date-formats
   lf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai%x08%x08%x08%x08%x08%x08) %C(bold white)<%an>%Creset' --abbrev-commit
   # log creation date of tags ("when was the last tag made?")
