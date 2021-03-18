@@ -12,6 +12,12 @@ awsprofile() {
   else
     profile=$(_list_awsprofiles | fzf)
   fi
+  if [[ $profile == 'None' ]]; then
+      echo "unsetting AWS_PROFILE and KUBECONFIG" >&2
+      unset AWS_PROFILE
+      unset KUBECONFIG
+      return
+  fi
   local env=$(echo $profile | cut -d_ -f2)
   export AWS_PROFILE=$profile KUBECONFIG=~/.kube/${profile}.yml
   [[ -f .terraform/environment ]] \
