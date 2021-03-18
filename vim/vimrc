@@ -33,7 +33,6 @@ Plug 'juliosueiras/vim-terraform-completion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'https://github.com/Yggdroot/indentLine'
 call plug#end()
 
 set background=dark
@@ -112,9 +111,6 @@ autocmd BufWritePost ~/LOG/*.md silent execute '!cd $(dirname %) && git status -
 
 " :WD changes to the current file's parent directory
 command! WD :execute 'cd ' . expand('%:p:h')
-
-let g:indentLine_char = '▏'
-let g:indentLine_enabled = 0
 
 " https://github.com/davidhalter/jedi-vim/issues/163
 let g:jedi#show_call_signatures = 0
