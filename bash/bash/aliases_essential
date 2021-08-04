@@ -46,4 +46,7 @@ if [[ $UID != 0 ]]; then
   alias salt-run="sudo salt-run"
 fi
 
+envfile_export() {
+    set -o allexport; source $1; set +o allexport
+}
 # vim: set ft=sh :
