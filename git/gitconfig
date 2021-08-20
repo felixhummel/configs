@@ -10,7 +10,6 @@
   ds = diff --color --staged
   # https://spin.atomicobject.com/2018/04/05/fuzzy-find-git-add/
   fza = "!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
-  graph = log --graph --pretty=oneline --abbrev-commit
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
   la = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit --all
@@ -25,10 +24,7 @@
   pff = pull --ff-only
   pr = pull --rebase
   poop = stash pop
-  rollback = reset --soft HEAD^
-  r1 = rebase -i HEAD~1
-  r2 = rebase -i HEAD~2
-  r3 = rebase -i HEAD~3
+  re = reset HEAD
   s = status
   ss = status -uno
   outgoing = log origin/master..HEAD
