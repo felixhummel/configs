@@ -1,3 +1,6 @@
+# :h UltiSnips-character-escaping
+
+
 snippet set
 set -euo pipefail
 endsnippet
@@ -6,7 +9,6 @@ snippet ft
 # vim: set ft=sh :
 endsnippet
 
-# see UltiSnips-character-escaping
 snippet here
 here=$(cd "\$(dirname "\$0")" && pwd)
 endsnippet
@@ -25,4 +27,14 @@ endsnippet
 
 snippet 2
 > &2
+endsnippet
+
+snippet tmp
+tmp=\$(mktemp "${TMPDIR:-/tmp}/\$(basename \$0).XXXXXXXXXX")
+finally() {
+	exit_code=$?
+  rm $tmp
+	exit $exit_code
+}
+trap finally SIGINT EXIT
 endsnippet
