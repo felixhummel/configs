@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # vim: set fileencoding=utf-8 filetype=python :
 """Link configs for tools defined here to $HOME.
 
@@ -65,7 +65,7 @@ def makelink(src, dest):
             log.debug('Removing link '+dest)
             os.unlink(dest)
         elif os.path.isdir(dest) or os.path.isfile(dest):
-            log.warn("mv %s %s", dest, BACKUP_DIR)
+            log.warning("mv %s %s", dest, BACKUP_DIR)
             shutil.move(dest, BACKUP_DIR)
     src = join(os.getcwd(), src)
     try:
