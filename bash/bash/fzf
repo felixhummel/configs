@@ -1,4 +1,10 @@
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# vim: set ft=bash :
+source_if_exists() {
+  [ -f $1 ] && source $1
+}
+source_if_exists /usr/share/doc/fzf/examples/key-bindings.bash
+source_if_exists /usr/share/doc/fzf/examples/completion.bash
+source_if_exists ~/.fzf.bash
 
 export FZF_COMPLETION_TRIGGER='//'
 export FZF_CTRL_R_OPTS="--preview-window down:2:hidden:wrap --bind tab:accept"
