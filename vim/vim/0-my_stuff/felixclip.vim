@@ -26,7 +26,12 @@ function! FelixClip()
       " echo 'v:shell_error:' v:shell_error
       call s:handle_clipboard_error()
     else
-      execute 'put c'
+      " begin *on* the current line if it is empty, else append
+      if getline('.') =~ '^$'
+        execute 'put! c'
+      else
+        execute 'put c'
+      endif
     endif
   catch
     call s:handle_clipboard_error()
