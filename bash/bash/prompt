@@ -23,7 +23,9 @@ _COLOR_CLEAR="\[\e[0m\]"
 _COLOR_GOLD="\[\e[38;5;136m\]"
 _COLOR_GREEN="\[\e[0;32m\]"
 _COLOR_RED="\[\e[0;31m\]"
-_COLOR_JOBS="$(_color dddddd 330000)"
+_COLOR_LO="$(_color dddddd 120f00)"  # 262000 was nice too
+_COLOR_ME="$(_color dddddd 260e00)"
+_COLOR_HI="$(_color dddddd 330000)"
 _COLOR_RET_ERR="$_COLOR_RED"
 
 _fh_prompt_git_stuff() {
@@ -60,10 +62,22 @@ _fh_prompt_kubectl() {
 
 _fh_prompt_jobs() {
     local job_count=$(jobs -p | wc -l)
-    if [[ $job_count -gt 1 ]]; then
-        echo
-        jobs -l
-    fi
+    case $job_count in
+        0)
+            return
+            ;;
+        1)
+            echo -n "$_COLOR_LO"
+            ;;
+        2)
+            echo -n "$_COLOR_ME"
+            ;;
+        *)
+            echo -n "$_COLOR_HI"
+            ;;
+    esac
+    jobs -l
+    echo -n "$_COLOR_CLEAR"
 }
 
 _fh_prompt() {
@@ -88,7 +102,7 @@ _fh_prompt() {
     PS1="${host_prefix}$(_fh_prompt_git_stuff)$(_fh_prompt_terraform)$(_fh_prompt_kubectl)${dir}${uid} ${_COLOR_CLEAR}"
 
     local job_prompt="$(_fh_prompt_jobs)"
-    [[ -n "$job_prompt" ]] && PS1="$_COLOR_JOBS${job_prompt}$_COLOR_CLEAR\n$PS1"
+    [[ -n "$job_prompt" ]] && PS1="${job_prompt}\n$PS1"
 
 
     # always append history
