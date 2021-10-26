@@ -1,27 +1,32 @@
 #!/bin/bash
-# shellcheck disable=SC2034
+# shellcheck disable=SC1087,SC2034,SC2053,SC2063,SC2086,SC2155,SC2181
 
-# some color definitions
-CLEAR="\[\e[0m\]"
-BLACK="\[\e[0;30m\]"
-BLUE="\[\e[0;34m\]"
-BROWN="\[\e[0;33m\]"
-CYAN="\[\e[0;36m\]"
-DARK_GRAY="\[\e[1;30m\]"
-GOLD="\[\e[38;5;136m\]"
-GREEN="\[\e[0;32m\]"
-LIGHT_BLUE="\[\e[1;34m\]"
-LIGHT_CYAN="\[\e[1;36m\]"
-LIGHT_GRAY="\[\e[0;37m\]"
-LIGHT_GREEN="\[\e[1;32m\]"
-LIGHT_PURPLE="\[\e[1;35m\]"
-LIGHT_RED="\[\e[1;31m\]"
-PURPLE="\[\e[0;35m\]"
-RED="\[\e[0;31m\]"
-WHITE="\[\e[1;37m\]"
-YELLOW="\[\e[1;33m\]"
+# https://github.com/termstandard/colors#terminal-colors
+# https://raw.githubusercontent.com/JohnMorales/dotfiles/master/colors/24-bit-color.sh
+_color_hex2rgb() {
+    rgb=$1
+    echo "$((16#${rgb:0:2}));$((16#${rgb:2:2}));$((16#${rgb:4:2}))"
+}
+_color_bg() {
+    hexs=$(_color_hex2rgb $1)
+    echo "\[\e[48;2;${hexs}m\]"
+}
+_color_fg() {
+    hexs=$(_color_hex2rgb $1)
+    echo "\[\e[38;2;${hexs}m\]"
+}
+_color() {
+    echo "$(_color_fg $1)$(_color_bg $2)"
+}
 
-__fh_prompt_git_stuff() {
+_COLOR_CLEAR="\[\e[0m\]"
+_COLOR_GOLD="\[\e[38;5;136m\]"
+_COLOR_GREEN="\[\e[0;32m\]"
+_COLOR_RED="\[\e[0;31m\]"
+_COLOR_JOBS="$(_color dddddd 330000)"
+_COLOR_RET_ERR="$(_color 000000 ff0000)"
+
+_fh_prompt_git_stuff() {
     local branch
     local branch_color
     local git_status
@@ -36,62 +41,61 @@ __fh_prompt_git_stuff() {
         branch=$(git branch | grep '^*' | sed s/\*\ //)
         [[ -z $branch ]] && branch='[NOBRANCH]'
         if [[ -z $git_status ]]; then
-            branch_color="${GREEN}"
+            branch_color="${_COLOR_GREEN}"
         else
-            branch_color="${RED}"
+            branch_color="${_COLOR_RED}"
         fi
         echo " ${branch_color}${branch}"
     fi
 }
 
-__fh_prompt_terraform() {
+_fh_prompt_terraform() {
     local tf_env_file=$PWD/.terraform/environment
-    [[ -f $tf_env_file ]] && echo " $GOLD[$(<$tf_env_file)]"
+    [[ -f $tf_env_file ]] && echo " $_COLOR_GOLD[$(<$tf_env_file)]"
 }
 
-__fh_prompt_kubectl() {
-    test -v KUBECONFIG && echo " $GOLD[$(kubectl config current-context)]"
+_fh_prompt_kubectl() {
+    test -v KUBECONFIG && echo " $_COLOR_GOLD[$(kubectl config current-context)]"
 }
 
-__fh_prompt_jobs() {
+_fh_prompt_jobs() {
     local job_count=$(jobs -p | wc -l)
-    if [[ $job_count > 1 ]]; then
+    if [[ $job_count -gt 1 ]]; then
         echo
         jobs -l
     fi
 }
 
-__fh_prompt() {
+_fh_prompt() {
     local retcode=$?  # this must be first
 
     # user@host
     local host_name="${FH_PROMPT_HOST:-\h}"
-    local host_color=$GOLD
+    local host_color=$_COLOR_GOLD
     local host_prefix="\u@${host_color}${host_name}"
 
     # working directory
-    local dir=" ${GREEN}\w"
+    local dir=" ${_COLOR_GREEN}\w"
 
     # non-zero exit
-    local exit_part=''
-    local uid_color="${GOLD}"
+    local uid_color="${_COLOR_GOLD}"
     if [[ $retcode != 0 ]]; then
-        uid_color="${RED}"
+        uid_color="${_COLOR_RET_ERR}"
     fi
-    local uid=" ${uid_color}\\\$"
+    local uid=" ${uid_color}\\\$${_COLOR_CLEAR}"
 
     # putting it all together
-    PS1="${host_prefix}$(__fh_prompt_git_stuff)$(__fh_prompt_terraform)$(__fh_prompt_kubectl)${dir}${uid} ${CLEAR}"
+    PS1="${host_prefix}$(_fh_prompt_git_stuff)$(_fh_prompt_terraform)$(_fh_prompt_kubectl)${dir}${uid} ${_COLOR_CLEAR}"
 
-    local job_prompt="$(__fh_prompt_jobs)"
-    [[ -n "$job_prompt" ]] && PS1="${job_prompt}\n$PS1"
+    local job_prompt="$(_fh_prompt_jobs)"
+    [[ -n "$job_prompt" ]] && PS1="$_COLOR_JOBS${job_prompt}$_COLOR_CLEAR\n$PS1"
 
 
     # always append history
     history -a
 }
 
-PROMPT_COMMAND=__fh_prompt
+PROMPT_COMMAND=_fh_prompt
 
 # debug
 # http://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup
