@@ -24,7 +24,7 @@ _COLOR_GOLD="\[\e[38;5;136m\]"
 _COLOR_GREEN="\[\e[0;32m\]"
 _COLOR_RED="\[\e[0;31m\]"
 _COLOR_JOBS="$(_color dddddd 330000)"
-_COLOR_RET_ERR="$(_color 000000 ff0000)"
+_COLOR_RET_ERR="$_COLOR_RED"
 
 _fh_prompt_git_stuff() {
     local branch
