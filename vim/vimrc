@@ -18,7 +18,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'  " default snippets
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 Plug 'leshill/vim-json'
 Plug 'saltstack/salt-vim'
 Plug 'stephpy/vim-yaml'
@@ -67,7 +67,6 @@ set noswapfile  " disable swapfiles
 " NERDTree
 let g:NERDTreeWinPos="right"
 let NERDTreeShowHidden=1
-map <F10> :NERDTreeToggle<CR>
 " http://stackoverflow.com/questions/1447334/how-do-you-add-nerdtree-to-your-vimrc
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p

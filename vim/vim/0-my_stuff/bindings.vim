@@ -39,3 +39,5 @@ nnoremap gv :vnew <cfile><CR>
 
 " Alt+. to insert argument of previous line
 :inoremap . <Esc>k$vByj$pa
+
+map <F10> :NERDTreeFind<CR>
