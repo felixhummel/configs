@@ -14,7 +14,7 @@
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
   la = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit --all
   # hack to remove timestamp offset http://stackoverflow.com/questions/7853332/git-log-date-formats
-  lf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai%x08%x08%x08%x08%x08%x08) %C(bold white)<%an>%Creset' --abbrev-commit
+  lf = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ai%x08%x08%x08%x08%x08%x08)%Creset%C(yellow)%d%Creset %s %C(bold white)<%an>%Creset' --abbrev-commit
   # log creation date of tags ("when was the last tag made?")
   lt = tag -l --format='%(creatordate:iso8601)  %(refname)'
   ls-green-and-blue = ls-files --modified --others --exclude-standard
