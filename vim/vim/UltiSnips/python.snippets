@@ -17,6 +17,12 @@ log = logging.getLogger()
 
 endsnippet
 
+snippet log2
+import logging
+
+log = logging.getLogger(__package__)
+endsnippet
+
 snippet django-migration
 def forward(apps, schema_editor):
     Foo = apps.get_model('myapp', 'Foo')
