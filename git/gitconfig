@@ -17,7 +17,6 @@
   lf = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ai%x08%x08%x08%x08%x08%x08)%Creset%C(yellow)%d%Creset %s %C(bold white)<%an>%Creset' --abbrev-commit
   # log creation date of tags ("when was the last tag made?")
   lt = tag -l --format='%(creatordate:iso8601)  %(refname)'
-  ls-green-and-blue = ls-files --modified --others --exclude-standard
   m = commit -avm
   mff = merge --ff-only
   patch = diff --patch --no-prefix --no-color
@@ -26,11 +25,8 @@
   poop = stash pop
   re = reset HEAD
   s = status
-  ss = status -uno
   outgoing = log origin/master..HEAD
   vd = difftool -y --tool=vimdiff
-  x = commit -m 'quicksave'
-  xa = commit -m 'quicksave' --all
 
 [branch]
   autosetupmerge = always
@@ -69,12 +65,12 @@
   excludesfile = /home/felix/.gitignore_global
 [push]
   default = current
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [credential]
 	helper = store
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
