@@ -14,11 +14,12 @@ alias pingheise="ping www.heise.de"
 alias pinggoogle="ping www.google.com"
 
 # apps
+_completion_loader git  # I should write a completion loader for g and gs...
 alias g="git"
+eval "$(complete -p git | sed -e 's/git$/g/')"
 # anti-stupidity (I don't use ghostscript and can still call it with \gs)
 alias gs="git s"
-_completion_loader git
-complete -o bashdefault -o default -o nospace -F _git g gs
+eval "$(complete -p git | sed -e 's/git$/gs/')"
 
 alias vim="command vim -p"  # open files in tabs
 alias vi=vim
