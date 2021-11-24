@@ -41,3 +41,10 @@ nnoremap gv :vnew <cfile><CR>
 :inoremap . <Esc>k$vByj$pa
 
 map <F10> :NERDTreeFind<CR>
+
+" bash history completion with fzf
+inoremap <expr> <c-x><c-h> fzf#vim#complete('grep -v ^# ~/.bash_history')
+" run the curent line in the shell
+nmap <leader><Return> :exec '!'.getline('.')<CR>
+nmap <C-f> :Rg<CR>
+map <F5> :make<CR>
