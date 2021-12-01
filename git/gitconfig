@@ -12,6 +12,7 @@
   fza = "!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
+  lm = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset\n%b' --abbrev-commit
   la = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit --all
   # hack to remove timestamp offset http://stackoverflow.com/questions/7853332/git-log-date-formats
   lf = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ai%x08%x08%x08%x08%x08%x08)%Creset%C(yellow)%d%Creset %s %C(bold white)<%an>%Creset' --abbrev-commit
