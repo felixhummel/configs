@@ -33,6 +33,7 @@ Plug 'juliosueiras/vim-terraform-completion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tpope/vim-surround'
 call plug#end()
 
 set background=dark
