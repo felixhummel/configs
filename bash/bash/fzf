@@ -26,3 +26,5 @@ builtin bind '"\C-x1": "\C-x2\C-x3"'
 
 # disable mouse
 export FZF_DEFAULT_OPTS="--no-mouse"
+# Ctrl-r options
+export FZF_CTRL_R_OPTS='--exact'
