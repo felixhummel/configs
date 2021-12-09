@@ -48,7 +48,8 @@ BACKUP_DIR = join(HOME, 'bak', checkout_dirname)
 
 import logging
 log = logging.getLogger('init')
-logging.basicConfig(level=logging.WARN, format='[%(levelname)s] %(message)s')
+loglevel = os.environ.get('LOGLEVEL', 'WARNING').upper()
+logging.basicConfig(level=loglevel, format='%(levelname)-7s %(message)s')
 
 
 def run(cmd):
@@ -139,7 +140,7 @@ def handle_nested():
             log.info('{0} --> {1}'.format(src, dest))
             # create directory if it does not exist
             mkdir_p(os.path.dirname(dest))
-            makelink(src, dest)
+            shutil.copyfile(src, dest)
 
 
 def mkdir_p(dirname):
