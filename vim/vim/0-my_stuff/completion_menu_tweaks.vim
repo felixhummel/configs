@@ -2,9 +2,3 @@
 " don't like the preview window pooping up
 " set completeopt=longest,menuone,preview
 set completeopt=longest,menuone
-
-" some nice colors
-highlight Pmenu ctermfg=Black ctermbg=DarkGreen
-highlight PmenuSel ctermfg=Black ctermbg=Grey
-
-" vim: set ft=vim:
