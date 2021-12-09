@@ -43,7 +43,7 @@ nnoremap gv :vnew <cfile><CR>
 map <F10> :NERDTreeFind<CR>
 
 " bash history completion with fzf
-inoremap <expr> <c-x><c-h> fzf#vim#complete({ 'source': 'grep -v ^# ~/.bash_history', 'options': '--multi --tac --no-sort', 'reducer': { lines -> join(lines, "\n") }})
+inoremap <expr> <c-x><c-h> fzf#vim#complete({ 'source': 'grep -v ^# ~/.bash_history', 'options': '--multi --tac --no-sort --exact', 'reducer': { lines -> join(lines, "\n") }})
 " run the curent line in the shell
 nmap <leader><Return> :exec '!'.getline('.')<CR>
 nmap <C-f> :Rg<CR>
