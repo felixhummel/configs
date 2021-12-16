@@ -23,9 +23,9 @@ _COLOR_CLEAR="\[\e[0m\]"
 _COLOR_GOLD="\[\e[38;5;136m\]"
 _COLOR_GREEN="\[\e[0;32m\]"
 _COLOR_RED="\[\e[0;31m\]"
-_COLOR_LO="$(_color 00aa00 000700)"
-_COLOR_ME="$(_color dddddd 260e00)"
-_COLOR_HI="$(_color dddddd 330000)"
+_COLOR_LO="$(_color 00aa00 002000)"
+_COLOR_ME="$(_color dd0000 260e00)"
+_COLOR_HI="$(_color ff0000 330000)"
 _COLOR_RET_ERR="$_COLOR_RED"
 
 _fh_prompt_git_stuff() {
