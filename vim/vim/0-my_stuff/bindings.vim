@@ -49,6 +49,7 @@ inoremap <expr> <c-x><c-h> fzf#vim#complete({ 'source': 'grep -v ^# ~/.bash_hist
 
 " run the curent line in the shell
 nmap <leader><Return> :exec '!'.getline('.')<CR>
-nmap <C-f> :Rg<CR>
+
+nmap <C-f> :FelixRg<CR>
 map <F5> :make<CR>
 
