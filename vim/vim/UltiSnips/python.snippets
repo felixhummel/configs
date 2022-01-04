@@ -3,10 +3,12 @@ if __name__ == '__main__':
     $1
 endsnippet
 
+
 snippet #!
 #!/usr/bin/env python
 
 endsnippet
+
 
 snippet log
 import logging
@@ -17,11 +19,20 @@ log = logging.getLogger()
 
 endsnippet
 
+
 snippet log2
 import logging
 
 log = logging.getLogger(__package__)
 endsnippet
+
+
+snippet slog
+import structlog
+
+log = structlog.get_logger()
+endsnippet
+
 
 snippet django-migration
 def forward(apps, schema_editor):
@@ -53,11 +64,13 @@ class Migration(migrations.Migration):
     ]
 endsnippet
 
+
 snippet pd
 import pandas as pd
 
 df = pd.from_$1
 endsnippet
+
 
 snippet path
 from pathlib import Path
