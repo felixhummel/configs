@@ -1,0 +1,1 @@
+hash hcloud 2>/dev/null && eval "$(hcloud completion bash)"
