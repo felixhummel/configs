@@ -38,6 +38,7 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 call plug#end()
 
+filetype plugin on
 set background=dark
 set backspace=indent,eol,start
 set fileencodings=utf-8,ucs-bom,default,latin1
