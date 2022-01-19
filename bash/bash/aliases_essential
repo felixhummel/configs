@@ -21,6 +21,8 @@ eval "$(complete -p git | sed -e 's/git$/g/')"
 alias gs="git s"
 eval "$(complete -p git | sed -e 's/git$/gs/')"
 
+alias gri='git rebase -i $(git log --no-merges --oneline --max-count 50 | fzf --reverse | cut -d" " -f1)'
+
 alias vim="command vim -p"  # open files in tabs
 alias vi=vim
 alias v=vim
