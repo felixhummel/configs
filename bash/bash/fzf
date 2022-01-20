@@ -7,6 +7,9 @@ source_if_exists /usr/share/doc/fzf/examples/completion.bash
 source_if_exists ~/.fzf.bash
 
 export FZF_COMPLETION_TRIGGER='//'
+# enable completion for essential aliases
+_fzf_setup_completion path v g git kubectl
+
 export FZF_CTRL_R_OPTS="--preview-window down:2:hidden:wrap --bind tab:accept"
 
 # CTRL-X-1 - Invoke Readline functions by name
