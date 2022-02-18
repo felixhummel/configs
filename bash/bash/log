@@ -1,7 +1,8 @@
 #!/bin/bash
 
 log() {
-  local dir=${1:-$PWD}
+  local dir=$PWD
+
   # use ~/LOG if we are at $HOME
   [[ "$(readlink -m $dir)" == $HOME ]] && dir=~/LOG
   # use ./LOG if present
@@ -14,6 +15,16 @@ log() {
 
   local dt=$(date +%m-%d)  # e.g. 09-31
   local base=$dir/$dt
+
+  # given '?' as first arg, use fzf to select an existing file
+  if [[ ${1:-} == '?' ]]; then
+    cd $dir
+    local f=$(fzf)
+    cd -
+    $EDITOR "$dir/$f"
+    return
+  fi
+
   # handle "09-31-something.md"
   case $(ls $base*.md | wc -l) in
     0)
