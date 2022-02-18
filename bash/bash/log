@@ -1,13 +1,18 @@
 #!/bin/bash
 
 log() {
-  local dir=${1:-}
-  local dt=$(date +%m-%d)  # e.g. 09-31
-  [[ -z "$dir" ]] && dir=.
+  local dir=${1:-$PWD}
   # use ~/LOG if we are at $HOME
   [[ "$(readlink -m $dir)" == $HOME ]] && dir=~/LOG
   # use ./LOG if present
   [[ -d ./LOG ]] && dir=$(readlink -m ./LOG)
+
+  # subdirectory for year, e.g. LOG/2022/
+  local year=$(date +%Y)  # e.g. 2022
+  dir=$dir/$year
+  mkdir -p $dir
+
+  local dt=$(date +%m-%d)  # e.g. 09-31
   local base=$dir/$dt
   # handle "09-31-something.md"
   case $(ls $base*.md | wc -l) in
