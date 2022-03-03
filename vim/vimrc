@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'  " plug help
 Plug 'felixhummel/sahara'  " color scheme
 Plug 'editorconfig/editorconfig-vim'
-Plug 'maralla/completor.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'  " default snippets
 Plug 'tpope/vim-fugitive'
