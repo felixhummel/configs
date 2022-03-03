@@ -3,8 +3,10 @@
   path = ~/.gitconfig.d/local
 
 [alias]
+  b = branch -avv
   ci = commit --verbose
   cia = commit --verbose --all
+  cini = commit -m initial
   co = checkout
   d = diff --color
   ds = diff --color --staged
