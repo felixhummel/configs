@@ -1,0 +1,5 @@
+_fh_help() {
+    [[ -f .python-version ]] && echo "pyenv-version: $(cat .python-version)"
+}
+
+alias ?=_fh_help
