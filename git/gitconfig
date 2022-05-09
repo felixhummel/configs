@@ -11,7 +11,7 @@
   d = diff --color
   ds = diff --color --staged
   # https://spin.atomicobject.com/2018/04/05/fuzzy-find-git-add/
-  fa = "!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
+  fa = "!git ls-files -m -o --exclude-standard | fzf --print0 -m --preview='git diff --color {}' | xargs -0 -t -o git add"
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
   lm = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset\n%b' --abbrev-commit
