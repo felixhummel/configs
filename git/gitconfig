@@ -27,6 +27,7 @@
   pr = pull --rebase
   poop = stash pop
   re = reset HEAD
+  rtags = ls-remote --tags
   s = status
   outgoing = log origin/master..HEAD
   vd = difftool -y --tool=vimdiff
