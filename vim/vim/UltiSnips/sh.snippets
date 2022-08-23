@@ -42,3 +42,22 @@ finally() {
 }
 trap finally SIGINT EXIT
 endsnippet
+
+snippet timeout
+_is_done() {
+  false  # not implemented
+}
+
+TIMEOUT=30
+t=0
+while ! _is_done; do
+  sleep 1
+  let ++t
+  echo -n '.' >&2
+  if [[ $t -gt $TIMEOUT ]]; then
+    echo "timeout after $TIMEOUT seconds. exiting." >&2
+    exit 1
+  fi
+done
+echo
+endsnippet
