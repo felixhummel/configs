@@ -1,0 +1,21 @@
+snippet ingress
+networks:
+  ingress:
+    external: true
+
+# attach to both the default and the ingress network
+x-networks: &x-networks
+  networks:
+    default:
+    ingress:
+
+services:
+
+  example:
+    <<: *x-networks
+    labels:
+      ingress.host: example.0-main.de
+      ingress.port: 8000
+    image: tenzer/http-echo-test
+
+endsnippet
