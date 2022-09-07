@@ -17,3 +17,23 @@ RUN apt-get update && apt-get --yes install \
         bash-completion \
     && rm -rf /var/lib/apt/lists/*
 endsnippet
+
+snippet unprivileged_alpine
+# unprivileged user with /opt/project
+ARG UID=2000
+ARG GID=2000
+RUN addgroup -g $GID me \
+    && adduser \
+      -u $UID \
+      -h /home/me \
+      -G me \
+      -D \
+      -s /bin/bash \
+      -g "umask=077" \
+      me
+COPY --chown=$UID:$GID ./ /opt/project
+USER me
+ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/me/.local/bin
+ENV HOME=/home/me
+WORKDIR /opt/project
+endsnippet
