@@ -27,6 +27,8 @@ alias vim="command vim -p"  # open files in tabs
 alias vi=vim
 alias v=vim
 
+alias cal="ncal -bM"  # "cal" like output; start weeks on monday
+
 # https://brbsix.github.io/2015/11/23/perform-tab-completion-for-aliases-in-bash/
 _alias_with_completion() {
   local name=$1 value=$2 func=$3
