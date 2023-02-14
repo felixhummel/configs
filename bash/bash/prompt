@@ -32,8 +32,6 @@ _fh_prompt_git_stuff() {
     local branch
     local branch_color
     local git_status
-    # ignore $HOME
-    [[ $PWD == $HOME ]] && return
     # check if we're in a git repo
     # 4 ms on my box, recurses automatically
     git_status=$(git status -s 2>/dev/null)
