@@ -1,0 +1,7 @@
+# vim: set ft=sh :
+
+if hash nvim 2>/dev/null; then
+  alias vim="command nvim -p"
+  alias vi="vim"
+  alias v="vim"
+fi
