@@ -25,15 +25,15 @@ map  :Commentary<CR>
 
 " goto file, create if not exists
 nnoremap gF :e <cfile><CR>
+" same in vsplit
+nnoremap \g :vnew <cfile><CR>
 " same in split
 nnoremap gs :split <cfile><CR>
-" same in vsplit
-nnoremap gv :vnew <cfile><CR>
 
 " read path under cursor into buffer
 :nnoremap <leader>r :read <C-r><C-f><Enter>
 " grep word under cursor
-:nnoremap <leader>g :Rg <C-r><C-w><Enter>
+:nnoremap <leader>rg :Rg <C-r><C-w><Enter>
 " run ripgrep
 :nnoremap <leader>? :Rg<Enter>
 

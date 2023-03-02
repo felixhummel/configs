@@ -2,8 +2,7 @@
 " au BufRead,BufNewFile *.md setlocal textwidth=79
 
 " surround code block, e.g. Vjj\`
-let g:surround_{char2nr('`')} = "```\r```"
-vmap <leader>` S`
+vmap <leader>` c```<CR>```<ESC>P
 
 " comment for myst parser
 " https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#comments
