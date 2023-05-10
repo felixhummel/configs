@@ -45,7 +45,8 @@ map <F10> :NERDTreeFind<CR>
 " fzf
 imap <c-x><c-k> <plug>(fzf-complete-word)
 " bash history completion
-inoremap <expr> <c-x><c-h> fzf#vim#complete({ 'source': 'grep -v ^# ~/.bash_history', 'options': '--multi --tac --no-sort --exact', 'reducer': { lines -> join(lines, "\n") }})
+" The "--text" flag lets rg continue even if a NUL byte is found
+inoremap <expr> <c-x><c-h> fzf#vim#complete({ 'source': 'rg --text -v ^# ~/.bash_history', 'options': '--multi --tac --no-sort --exact', 'reducer': { lines -> join(lines, "\n") }})
 
 " run the curent line in the shell
 nmap <leader><Return> :exec '!'.getline('.')<CR>
