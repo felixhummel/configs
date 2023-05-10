@@ -11,6 +11,12 @@ augroup filetypedetect
     au BufRead,BufNewFile *.sls setfiletype sls
 augroup END
 
+" https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'  " plug help
 Plug 'felixhummel/sahara'  " color scheme
@@ -36,7 +42,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'isobit/vim-caddyfile'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', Cond(executable('node'), {'branch': 'release'})
 call plug#end()
 
 filetype plugin on
