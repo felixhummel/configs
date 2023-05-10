@@ -15,8 +15,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'  " plug help
 Plug 'felixhummel/sahara'  " color scheme
 Plug 'editorconfig/editorconfig-vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'  " default snippets
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'  " default snippets
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 Plug 'leshill/vim-json'
@@ -36,6 +36,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'isobit/vim-caddyfile'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 filetype plugin on
