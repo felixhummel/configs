@@ -12,6 +12,7 @@ awsprofile() {
   else
     profile=$(_list_awsprofiles | fzf)
   fi
+
   if [[ $profile == 'None' ]]; then
       echo "unsetting AWS_PROFILE and KUBECONFIG" >&2
       unset AWS_PROFILE
@@ -19,7 +20,16 @@ awsprofile() {
       return
   fi
   local env=$(echo $profile | cut -d_ -f2)
-  export AWS_PROFILE=$profile KUBECONFIG=~/.kube/${profile}.yml
+
+  export AWS_PROFILE=$profile
+
+  local kubeconfig=~/.kube/${profile}.yml
+  if [[ -f $kubeconfig ]]; then
+    export KUBECONFIG=$kubeconfig
+  else
+    echo "WARNING: KUBECONFIG not found: $kubeconfig" >&2
+  fi
+
   [[ -f .terraform/environment ]] \
     && [[ $(< .terraform/environment) != $env ]] \
     && terraform workspace select $env \
