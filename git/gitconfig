@@ -3,7 +3,7 @@
   path = ~/.gitconfig.d/local
 
 [alias]
-  b = branch -avv
+  b = branch -avv --sort -committerdate
   ci = commit --verbose
   cia = commit --verbose --all
   cini = commit -m initial
