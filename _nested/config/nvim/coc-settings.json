@@ -1,0 +1,5 @@
+{
+  "suggest.noselect": true,
+  "yaml.enable": true,
+  "snippets.ultisnips.pythonPrompt": false
+}
