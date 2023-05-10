@@ -140,7 +140,7 @@ def handle_nested():
             log.info('{0} --> {1}'.format(src, dest))
             # create directory if it does not exist
             mkdir_p(os.path.dirname(dest))
-            shutil.copyfile(src, dest)
+            makelink(src, dest)
 
 
 def mkdir_p(dirname):
