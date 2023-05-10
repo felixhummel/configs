@@ -1,9 +1,9 @@
 #!/bin/bash
-if [[ -d ~/go ]]; then
+if [[ -d $HOME/go ]]; then
   export GOPATH=$HOME/go
   export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
   if [[ -f ~/go/bin/gocomplete ]]; then
-    complete -C /home/felix/go/bin/gocomplete go
+    complete -C $HOME/go/bin/gocomplete go
   fi
 fi
 
