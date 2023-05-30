@@ -63,6 +63,7 @@
       <property name="&lt;Super&gt;v" type="string" value="xfce4-terminal -x nvim"/>
       <property name="&lt;Super&gt;f" type="string" value="rofi -show combi -combi-modes &quot;window,run,combi&quot; -modes combi"/>
       <property name="&lt;Super&gt;r" type="string" value="xfrun4"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;v" type="string" value="rofi -modi &quot;clipboard:greenclip print&quot; -show clipboard -run-command &apos;{cmd}&apos;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
