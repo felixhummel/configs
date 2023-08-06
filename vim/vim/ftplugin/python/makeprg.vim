@@ -1,1 +1,0 @@
-set makeprg=flake8\ %
