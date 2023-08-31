@@ -3,6 +3,8 @@
 
 " surround code block, e.g. Vjj\`
 vmap <leader>` c```<CR>```<ESC>P
+" surround inline selection, e.g. vlll`
+vmap ` S`
 
 " comment for myst parser
 " https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#comments
