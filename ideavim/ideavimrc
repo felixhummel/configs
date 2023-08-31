@@ -24,3 +24,5 @@ nnoremap gs :split <cfile><CR>
 nnoremap gv :vnew <cfile><CR>
 
 set iskeyword+=-
+
+set matchit
