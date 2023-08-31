@@ -17,12 +17,19 @@
       <property name="&lt;Super&gt;p" type="empty"/>
       <property name="&lt;Primary&gt;Escape" type="empty"/>
       <property name="XF86WWW" type="empty"/>
+      <property name="HomePage" type="empty"/>
       <property name="XF86Mail" type="empty"/>
       <property name="Print" type="empty"/>
-      <property name="&lt;Super&gt;l" type="empty"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="empty"/>
       <property name="&lt;Alt&gt;Print" type="empty"/>
       <property name="&lt;Shift&gt;Print" type="empty"/>
+      <property name="&lt;Super&gt;e" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;f" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="empty"/>
+      <property name="&lt;Super&gt;r" type="empty">
+        <property name="startup-notify" type="empty"/>
+      </property>
+      <property name="&lt;Super&gt;l" type="empty"/>
       <property name="XF86HomePage" type="empty"/>
       <property name="&lt;Super&gt;w" type="empty"/>
       <property name="&lt;Super&gt;m" type="empty"/>
@@ -30,8 +37,6 @@
       <property name="&lt;Super&gt;f" type="empty"/>
       <property name="&lt;Super&gt;F1" type="empty"/>
       <property name="&lt;Super&gt;t" type="empty"/>
-      <property name="&lt;Super&gt;r" type="empty"/>
-      <property name="&lt;Super&gt;e" type="empty"/>
       <property name="XF86Calculator" type="empty"/>
       <property name="XF86Music" type="empty"/>
       <property name="&lt;Super&gt;1" type="empty"/>
@@ -56,14 +61,16 @@
       <property name="&lt;Super&gt;k" type="string" value="exo-open --launch TerminalEmulator"/>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
       <property name="&lt;Super&gt;q" type="string" value="xfce4-session-logout"/>
-      <property name="&lt;Super&gt;z" type="string" value="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"/>
-      <property name="&lt;Super&gt;Page_Down" type="string" value="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"/>
-      <property name="&lt;Super&gt;Page_Up" type="string" value="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"/>
       <property name="&lt;Primary&gt;Print" type="string" value="xfce4-screenshooter -rc"/>
       <property name="&lt;Super&gt;v" type="string" value="xfce4-terminal -x nvim"/>
       <property name="&lt;Super&gt;f" type="string" value="rofi -show combi -combi-modes &quot;window,run,combi&quot; -modes combi"/>
       <property name="&lt;Super&gt;r" type="string" value="xfrun4"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;v" type="string" value="rofi -modi &quot;clipboard:greenclip print&quot; -show clipboard -run-command &apos;{cmd}&apos;"/>
+      <property name="&lt;Super&gt;z" type="string" value="/home/felix/.pyenv/versions/felix/bin/python /home/felix/bin/music PlayPause"/>
+      <property name="&lt;Super&gt;Page_Up" type="string" value="/home/felix/.pyenv/versions/felix/bin/python /home/felix/bin/music Previous"/>
+      <property name="&lt;Super&gt;Page_Down" type="string" value="/home/felix/.pyenv/versions/felix/bin/python /home/felix/bin/music Next"/>
+      <property name="&lt;Super&gt;slash" type="string" value="/home/felix/bin/mic-toggle"/>
+      <property name="&lt;Super&gt;j" type="string" value="xfce4-terminal -x env EDITOR=nvim /home/felix/.bin/felix-vim-json"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -120,6 +127,14 @@
       <property name="&lt;Primary&gt;F10" type="empty"/>
       <property name="&lt;Primary&gt;F11" type="empty"/>
       <property name="&lt;Primary&gt;F12" type="empty"/>
+      <property name="&lt;Super&gt;KP_Left" type="empty"/>
+      <property name="&lt;Super&gt;KP_Right" type="empty"/>
+      <property name="&lt;Super&gt;KP_Up" type="empty"/>
+      <property name="&lt;Super&gt;KP_Down" type="empty"/>
+      <property name="&lt;Super&gt;KP_Page_Up" type="empty"/>
+      <property name="&lt;Super&gt;KP_Home" type="empty"/>
+      <property name="&lt;Super&gt;KP_End" type="empty"/>
+      <property name="&lt;Super&gt;KP_Next" type="empty"/>
       <property name="&lt;Alt&gt;F5" type="empty"/>
       <property name="&lt;Super&gt;KP_1" type="empty"/>
       <property name="&lt;Super&gt;Down" type="empty"/>
@@ -176,7 +191,6 @@
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="string" value="move_window_left_key"/>
       <property name="&lt;Alt&gt;&lt;Shift&gt;Tab" type="string" value="cycle_reverse_windows_key"/>
       <property name="&lt;Alt&gt;Insert" type="string" value="add_workspace_key"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;d" type="string" value="show_desktop_key"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Down" type="string" value="down_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Left" type="string" value="left_workspace_key"/>
       <property name="&lt;Shift&gt;&lt;Alt&gt;Page_Down" type="string" value="lower_window_key"/>
@@ -251,6 +265,7 @@
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
       <property name="&lt;Super&gt;Down" type="string" value="tile_down_key"/>
       <property name="&lt;Super&gt;Up" type="string" value="maximize_window_key"/>
+      <property name="&lt;Super&gt;d" type="string" value="show_desktop_key"/>
     </property>
   </property>
   <property name="providers" type="array">
