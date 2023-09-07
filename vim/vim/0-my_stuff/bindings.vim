@@ -10,8 +10,8 @@ vnoremap  "+y
 map <C-p> :call FelixClip()<CR>
 
 " jump between errors (see :h quickfix)
-nmap <M-LEFT> :cprev<cr>
-nmap <M-RIGHT> :cnext<cr>
+nmap <M-LEFT> :call CocAction('diagnosticNext')<cr>
+nmap <M-RIGHT> :call CocAction('diagnosticPrevious')<cr>
 
 " use C-Space for omnicompletion
 inoremap <Nul> <C-x><C-o>
