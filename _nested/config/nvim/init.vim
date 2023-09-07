@@ -10,3 +10,5 @@ set guicursor=i:block
 " override undo file (incompatible between vim and nvim)
 set undodir=~/.local/share/nvim/undodir
 
+" enable true color support
+set termguicolors
