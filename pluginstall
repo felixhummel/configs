@@ -1,5 +1,5 @@
 #!/bin/bash
 set -euo pipefail
 
-exec vim +PlugInstall +qall
+exec $EDITOR +PlugInstall +qall
 
