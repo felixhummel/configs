@@ -1,6 +1,7 @@
 {
   "suggest.noselect": true,
   "yaml.enable": true,
+  "yaml.schemaStore.enable": true,
   "snippets.ultisnips.pythonPrompt": false,
 	"languageserver": {
 		"terraform": {
