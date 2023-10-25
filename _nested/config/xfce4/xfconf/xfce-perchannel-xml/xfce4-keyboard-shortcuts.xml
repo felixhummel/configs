@@ -63,7 +63,6 @@
       <property name="&lt;Super&gt;q" type="string" value="xfce4-session-logout"/>
       <property name="&lt;Primary&gt;Print" type="string" value="xfce4-screenshooter -rc"/>
       <property name="&lt;Super&gt;v" type="string" value="xfce4-terminal -x nvim"/>
-      <property name="&lt;Super&gt;f" type="string" value="rofi -show combi -combi-modes &quot;window,run,combi&quot; -modes combi"/>
       <property name="&lt;Super&gt;r" type="string" value="xfrun4"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;v" type="string" value="rofi -modi &quot;clipboard:greenclip print&quot; -show clipboard -run-command &apos;{cmd}&apos;"/>
       <property name="&lt;Super&gt;z" type="string" value="/home/felix/.pyenv/versions/felix/bin/python /home/felix/bin/music PlayPause"/>
@@ -71,6 +70,8 @@
       <property name="&lt;Super&gt;Page_Down" type="string" value="/home/felix/.pyenv/versions/felix/bin/python /home/felix/bin/music Next"/>
       <property name="&lt;Super&gt;slash" type="string" value="/home/felix/bin/mic-toggle"/>
       <property name="&lt;Super&gt;j" type="string" value="xfce4-terminal -x env EDITOR=nvim /home/felix/.bin/felix-vim-json"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;e" type="string" value="firefox https://www.webfx.com/tools/emoji-cheat-sheet/"/>
+      <property name="&lt;Super&gt;f" type="string" value="firefox"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
