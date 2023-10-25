@@ -124,11 +124,10 @@ def gen_git_config(email=None, name=None):
         log.info("Wrote {0}".format(path))
 
 
-def handle_nested():
-    log.info('handling nested files')
+def _iter_nested():
     for root, dirs, files in os.walk('_nested'):
         for f in files:
-            walkparts = [root] + dirs + [f]
+            walkparts = [root] + [f]
             src = os.path.join(*walkparts)
             log.debug('src: %s', src)
             parts = src.split('/')
@@ -138,9 +137,17 @@ def handle_nested():
             dest = os.path.join(HOME, '.' + tmp)
             # _nested/foo/bar --> .foo/bar (note the dot)
             log.info('{0} --> {1}'.format(src, dest))
-            # create directory if it does not exist
-            mkdir_p(os.path.dirname(dest))
-            makelink(src, dest)
+            yield src, dest
+
+
+def handle_nested():
+    log.info('handling nested files')
+    # compute up-front
+    xs = list(_iter_nested())
+    for src, dest in xs:
+        # create directory if it does not exist
+        mkdir_p(os.path.dirname(dest))
+        makelink(src, dest)
 
 
 def mkdir_p(dirname):
