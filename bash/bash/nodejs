@@ -7,3 +7,13 @@ if [[ -d $NODEJS_HOME ]]; then
   export PATH=$PATH:$NODEJS_HOME
 fi
 
+# http://stackoverflow.com/questions/18088372/how-to-npm-install-global-not-as-root
+_npm_packages=$HOME/.npm-packages
+
+if [[ -d $_npm_packages ]]; then
+    export _npm_packages
+    export NODE_PATH="$_npm_packages/lib/node_modules:$NODE_PATH"
+    export PATH=$_npm_packages/bin:$PATH
+fi
+
+unset _npm_packages
