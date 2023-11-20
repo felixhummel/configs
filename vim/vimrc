@@ -46,6 +46,7 @@ Plug 'neoclide/coc.nvim', Cond(executable('node'), {'branch': 'release'})
 Plug 'Fymyte/rasi.vim'
 " paste image
 Plug 'dfendr/clipboard-image.nvim'  " fork with fixed health check
+Plug 'mfussenegger/nvim-lint'
 call plug#end()
 
 filetype plugin on
