@@ -70,8 +70,8 @@
       <property name="&lt;Super&gt;Page_Down" type="string" value="/home/felix/.pyenv/versions/felix/bin/python /home/felix/bin/music Next"/>
       <property name="&lt;Super&gt;slash" type="string" value="/home/felix/bin/mic-toggle"/>
       <property name="&lt;Super&gt;j" type="string" value="xfce4-terminal -x env EDITOR=nvim /home/felix/.bin/felix-vim-json"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;e" type="string" value="firefox https://www.webfx.com/tools/emoji-cheat-sheet/"/>
       <property name="&lt;Super&gt;f" type="string" value="firefox"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;e" type="string" value="/home/felix/.nix-profile/bin/emote"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -264,9 +264,9 @@
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
-      <property name="&lt;Super&gt;Down" type="string" value="tile_down_key"/>
       <property name="&lt;Super&gt;Up" type="string" value="maximize_window_key"/>
       <property name="&lt;Super&gt;d" type="string" value="show_desktop_key"/>
+      <property name="&lt;Super&gt;Down" type="string" value="raiselower_window_key"/>
     </property>
   </property>
   <property name="providers" type="array">
