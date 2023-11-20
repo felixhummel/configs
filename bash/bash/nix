@@ -1,1 +1,0 @@
-[[ -d ~/.nix-profile/bin ]] && export PATH=~/.nix-profile/bin:$PATH
