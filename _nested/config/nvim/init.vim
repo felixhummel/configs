@@ -12,3 +12,7 @@ set undodir=~/.local/share/nvim/undodir
 
 " enable true color support
 set termguicolors
+
+" spellcheck (since neovim 0.9)
+set spelllang=de_de,en_us
+set spellcapcheck=
