@@ -1,17 +1,13 @@
+# FH_BASH_PROFILE=1 bash -xic echo 2> ~/profile-bash.log
 [[ ${FH_BASH_PROFILE:-0} != 0 ]] && export PS4='▬ $(date "+%s.%N")\011 '
-# include binaries from $HOME/bin. To add more, link them in $HOME/bin/
+# include binaries from $HOME/bin.
 # $HOME/.bin contains stuff I don't want to publish (yet)
 export PATH=$HOME/.bin:$HOME/bin:$PATH:$HOME/.local/bin
-
-[[ -d /usr/local/go/bin ]] && export PATH=$PATH:/usr/local/go/bin
 
 # set vim as default editor
 vim=/usr/bin/vim
 export EDITOR=$vim
 export VISUAL=$vim
-
-# global bash completion
-[[ -s /etc/bash_completion ]] && source /etc/bash_completion
 
 # tweak history
 export HISTTIMEFORMAT='%F__%H-%M-%S $ '
@@ -33,6 +29,9 @@ export FIGNORE=".egg-info:$FIGNORE"
 # =========================================
 [[ -z $PS1 ]] >&2 && return
 # =========================================
+
+# global bash completion
+[[ -s /etc/bash_completion ]] && source /etc/bash_completion
 
 # load everything from $HOME/.bash/ except README.md and directories
 if [[ -d $HOME/.bash/ ]]; then
