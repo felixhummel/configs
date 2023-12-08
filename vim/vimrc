@@ -47,6 +47,8 @@ Plug 'Fymyte/rasi.vim'
 " paste image
 Plug 'dfendr/clipboard-image.nvim'  " fork with fixed health check
 Plug 'mfussenegger/nvim-lint'
+" z= spelling suggestions via fzf https://github.com/junegunn/fzf/issues/2284
+Plug 'https://gitlab.com/mcepl/vim-fzfspell/'
 call plug#end()
 
 filetype plugin on
