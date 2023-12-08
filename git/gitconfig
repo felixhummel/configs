@@ -4,6 +4,7 @@
 
 [alias]
   b = branch -avv --sort -committerdate
+  cam = commit --amend
   ci = commit --verbose
   cia = commit --verbose --all
   cini = commit -m initial
