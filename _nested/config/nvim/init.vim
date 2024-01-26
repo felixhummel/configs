@@ -16,3 +16,5 @@ set termguicolors
 " spellcheck (since neovim 0.9)
 set spelllang=de_de,en_us
 set spellcapcheck=
+
+lua require('user/clipboard-image')
