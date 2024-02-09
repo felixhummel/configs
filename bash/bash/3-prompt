@@ -1,32 +1,13 @@
 #!/bin/bash
-# shellcheck disable=SC1087,SC2034,SC2053,SC2063,SC2086,SC2155,SC2181
+# shellcheck disable=SC1087,SC1090,SC2034,SC2053,SC2063,SC2086,SC2155,SC2181
 
-# https://github.com/termstandard/colors#terminal-colors
-# https://raw.githubusercontent.com/JohnMorales/dotfiles/master/colors/24-bit-color.sh
-_color_hex2rgb() {
-    rgb=$1
-    echo "$((16#${rgb:0:2}));$((16#${rgb:2:2}));$((16#${rgb:4:2}))"
-}
-_color_bg() {
-    hexs=$(_color_hex2rgb $1)
-    echo "\[\e[48;2;${hexs}m\]"
-}
-_color_fg() {
-    hexs=$(_color_hex2rgb $1)
-    echo "\[\e[38;2;${hexs}m\]"
-}
-_color() {
-    echo "$(_color_fg $1)$(_color_bg $2)"
-}
+# 2-colors must be sourced before this
+# example ~/.config/felix/prompt
+# FH_PROMPT_HOST=prod
+# FH_PROMPT_HOST_COLOR=$_COLOR_HI
+# FH_PROMPT_USER_COLOR=$_COLOR_HI
 
-_COLOR_CLEAR="\[\e[0m\]"
-_COLOR_GOLD="\[\e[38;5;136m\]"
-_COLOR_GREEN="\[\e[0;32m\]"
-_COLOR_RED="\[\e[0;31m\]"
-_COLOR_LO="$(_color 00aa00 002000)"
-_COLOR_ME="$(_color dd0000 260e00)"
-_COLOR_HI="$(_color ff0000 330000)"
-_COLOR_RET_ERR="$_COLOR_RED"
+[[ -f ~/.config/felix/prompt ]] && source ~/.config/felix/prompt
 
 _fh_prompt_git_stuff() {
     local branch
@@ -61,7 +42,7 @@ _fh_prompt_kubectl() {
 _fh_prompt_jobs() {
     local i=0
     jobs -l | while read -r line; do
-        let i+=1
+        (( i+=1 ))
         case $i in
         1)
             echo -n "$_COLOR_LO"
@@ -82,8 +63,9 @@ _fh_prompt() {
 
     # user@host
     local host_name="${FH_PROMPT_HOST:-\h}"
-    local host_color=$_COLOR_GOLD
-    local host_prefix="\u@${host_color}${host_name}"
+    local host_color=${FH_PROMPT_HOST_COLOR:-$_COLOR_GOLD}
+    local user_color=${FH_PROMPT_USER_COLOR:-}
+    local host_prefix="${user_color}\u${_COLOR_CLEAR}@${host_color}${host_name}"
 
     # working directory
     local dir=" ${_COLOR_GREEN}\w"
