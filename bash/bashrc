@@ -1,3 +1,6 @@
+#!/bin/bash
+# shellcheck disable=SC1090,SC2086,SC2231
+
 # FH_BASH_PROFILE=1 bash -xic echo 2> ~/profile-bash.log
 [[ ${FH_BASH_PROFILE:-0} != 0 ]] && export PS4='▬ $(date "+%s.%N")\011 '
 # include binaries from $HOME/bin.
