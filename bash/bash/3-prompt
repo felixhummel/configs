@@ -4,8 +4,8 @@
 # 2-colors must be sourced before this
 # example ~/.config/felix/prompt
 # FH_PROMPT_HOST=prod
-# FH_PROMPT_HOST_COLOR=$_COLOR_HI
-# FH_PROMPT_USER_COLOR=$_COLOR_HI
+# # black on bright red
+# FH_PROMPT_COLOR=$(_color 000000 ff0000)
 
 [[ -f ~/.config/felix/prompt ]] && source ~/.config/felix/prompt
 
@@ -63,9 +63,9 @@ _fh_prompt() {
 
     # user@host
     local host_name="${FH_PROMPT_HOST:-\h}"
-    local host_color=${FH_PROMPT_HOST_COLOR:-$_COLOR_GOLD}
-    local user_color=${FH_PROMPT_USER_COLOR:-}
-    local host_prefix="${user_color}\u${_COLOR_CLEAR}@${host_color}${host_name}"
+    local host_color=${FH_PROMPT_COLOR:-$_COLOR_GOLD}
+    local user_color=${FH_PROMPT_COLOR:-}
+    local host_prefix="${user_color}\u@${host_color}${host_name}${_COLOR_CLEAR}"
 
     # working directory
     local dir=" ${_COLOR_GREEN}\w"
