@@ -1,7 +1,7 @@
 set hlsearch
-" yank to OS clipboard (secondary)
-" set clipboard+=unnamedplus
-"
+
+" Yank to system clipboard with Ctrl+Y
+vnoremap  "+y
 
 " move lines with alt+up/down
 map <M-Up> :m.-2<CR>
