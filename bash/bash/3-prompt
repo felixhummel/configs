@@ -39,6 +39,10 @@ _fh_prompt_kubectl() {
     test -v KUBECONFIG && echo " $_COLOR_GOLD[$(kubectl config current-context)]"
 }
 
+_fh_prompt_nix() {
+    test -v IN_NIX_SHELL && echo " $_COLOR_GOLD[$IN_NIX_SHELL]"
+}
+
 _fh_prompt_jobs() {
     local i=0
     jobs -l | while read -r line; do
@@ -78,7 +82,7 @@ _fh_prompt() {
     local uid=" ${uid_color}\\\$${_COLOR_CLEAR}"
 
     # putting it all together
-    PS1="${host_prefix}$(_fh_prompt_git_stuff)$(_fh_prompt_terraform)$(_fh_prompt_kubectl)${dir}${uid} ${_COLOR_CLEAR}"
+    PS1="${host_prefix}$(_fh_prompt_git_stuff)$(_fh_prompt_nix)$(_fh_prompt_terraform)$(_fh_prompt_kubectl)${dir}${uid} ${_COLOR_CLEAR}"
 
     local job_prompt="$(_fh_prompt_jobs)"
     [[ -n "$job_prompt" ]] && PS1="${job_prompt}\n$_COLOR_CLEAR$PS1"
