@@ -19,36 +19,40 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'  " plug help
+Plug 'tpope/vim-surround'  " vS'
+Plug 'tpope/vim-commentary'  " \c
 Plug 'felixhummel/sahara'  " color scheme
-Plug 'editorconfig/editorconfig-vim'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'  " default snippets
-Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'  " EditorConfig \o/
+Plug 'tpope/vim-fugitive'  " :Git blame
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
-Plug 'leshill/vim-json'
-Plug 'saltstack/salt-vim'
-Plug 'stephpy/vim-yaml'
-Plug 'lepture/vim-jinja'
+" Plug 'leshill/vim-json'
+" Plug 'saltstack/salt-vim'
+" Plug 'stephpy/vim-yaml'
+" Plug 'lepture/vim-jinja'
 Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
-Plug 'robbles/logstash.vim'
-Plug 'tpope/vim-commentary'
-Plug 'hashivim/vim-terraform'
+" Plug 'robbles/logstash.vim'
+Plug 'hashivim/vim-terraform'  " superseded by coc/terraform-ls
+" Plug 'juliosueiras/vim-terraform-completion'
 " Plug 'vim-syntastic/syntastic'
-Plug 'juliosueiras/vim-terraform-completion'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
+" fzf \o/
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'tpope/vim-surround'
-Plug 'mbbill/undotree'
-Plug 'isobit/vim-caddyfile'
-Plug 'neoclide/coc.nvim', Cond(executable('node'), {'branch': 'release'})
-Plug 'Fymyte/rasi.vim'
-" paste image
-Plug 'dfendr/clipboard-image.nvim'  " fork with fixed health check
-Plug 'mfussenegger/nvim-lint'
 " z= spelling suggestions via fzf https://github.com/junegunn/fzf/issues/2284
 Plug 'https://gitlab.com/mcepl/vim-fzfspell/'
+" Python \o/
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'mbbill/undotree'
+Plug 'isobit/vim-caddyfile'
+
+if has('nvim')
+  Plug 'neoclide/coc.nvim', Cond(executable('node'), {'branch': 'release'})
+  " paste image
+  Plug 'dfendr/clipboard-image.nvim'  " fork with fixed health check
+  Plug 'mfussenegger/nvim-lint'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'rfratto/vim-river'
+endif
 call plug#end()
 
 filetype plugin on
