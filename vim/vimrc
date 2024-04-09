@@ -32,7 +32,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
 " Plug 'robbles/logstash.vim'
-Plug 'hashivim/vim-terraform'  " superseded by coc/terraform-ls
+Plug 'hashivim/vim-terraform'
 " Plug 'juliosueiras/vim-terraform-completion'
 " Plug 'vim-syntastic/syntastic'
 " fzf \o/
@@ -46,7 +46,6 @@ Plug 'mbbill/undotree'
 Plug 'isobit/vim-caddyfile'
 
 if has('nvim')
-  Plug 'neoclide/coc.nvim', Cond(executable('node'), {'branch': 'release'})
   " paste image
   Plug 'dfendr/clipboard-image.nvim'  " fork with fixed health check
   Plug 'mfussenegger/nvim-lint'
