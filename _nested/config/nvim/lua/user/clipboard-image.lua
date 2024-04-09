@@ -7,13 +7,13 @@
 
 local function _img_dir()
   local result = vim.fn.expand('%:p:~:.:h') .. "/img"
-  assert(vim.fn.mkdir(result, "p"), "error creating directory" .. result)
+  assert(vim.fn.mkdir(result, "p"), "error creating directory " .. result)
   return result
 end
 
 require'clipboard-image'.setup {
   default = {
-    img_dir = _img_dir(),
+    img_dir = _img_dir,
     img_dir_txt = 'img',
     img_name = function() return os.date('%m-%d_%H-%M-%S') end,
     affix = "<\n  %s\n>" -- Multi lines affix
