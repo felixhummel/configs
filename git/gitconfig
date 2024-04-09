@@ -77,3 +77,9 @@
 	defaultBranch = main
 [advice]
 	detachedHead = false
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[user]
+	signingkey = /home/felix/.ssh/id_ed25519.pub
