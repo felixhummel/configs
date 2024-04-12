@@ -68,7 +68,7 @@
   insteadOf = git://
 
 [core]
-  excludesfile = /home/felix/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [push]
   default = current
 [credential]
@@ -82,4 +82,4 @@
 [commit]
 	gpgsign = true
 [user]
-	signingkey = /home/felix/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/id_ed25519.pub
