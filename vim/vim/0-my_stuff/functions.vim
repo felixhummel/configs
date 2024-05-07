@@ -1,14 +1,16 @@
 " https://vi.stackexchange.com/a/5952
-function! StripTrailingWhitespace()
+" ChatGPT for "range"
+" https://chat.openai.com/share/2d6bd948-e193-470b-9061-56747d8b2521
+function! StripTrailingWhitespace() range
     " Save cursor position
     let l:save = winsaveview()
-    " Remove trailing whitespace
-    %s/\s\+$//e
+    " Remove trailing whitespace for the specified range
+    execute a:firstline . ',' . a:lastline . 's/\s\+$//e'
     " Move cursor to original position
     call winrestview(l:save)
     echo "Stripped trailing whitespace"
 endfunction
-command StripTrailingWhitespace :call StripTrailingWhitespace()
+command -range=% StripTrailingWhitespace :<line1>,<line2>call StripTrailingWhitespace()
 
 " https://brookhong.github.io/2016/09/03/view-diff-file-side-by-side-in-vim.html
 function! Vimdiff()
