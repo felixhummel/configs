@@ -26,3 +26,6 @@ nnoremap gv :vnew <cfile><CR>
 set iskeyword+=-
 
 set matchit
+
+" https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
+Plug 'tpope/vim-surround'
