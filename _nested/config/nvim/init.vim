@@ -18,3 +18,4 @@ set spelllang=de_de,en_us
 set spellcapcheck=
 
 lua require('user/clipboard-image')
+lua require('user/terraform-ls')
