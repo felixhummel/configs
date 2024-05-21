@@ -53,6 +53,7 @@ if has('nvim')
   Plug 'mfussenegger/nvim-lint'
   Plug 'neovim/nvim-lspconfig'
   Plug 'rfratto/vim-river'
+  Plug 'neovim/nvim-lspconfig'
 endif
 call plug#end()
 
