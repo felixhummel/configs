@@ -15,6 +15,7 @@ nmap <M-RIGHT> :cnext<cr>
 
 " use C-Space for omnicompletion
 inoremap <Nul> <C-x><C-o>
+inoremap <C-Space> <C-x><C-o>
 
 " comment leader style
 map <Leader>c :Commentary<CR>
