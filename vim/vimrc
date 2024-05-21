@@ -29,6 +29,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 " Plug 'saltstack/salt-vim'
 " Plug 'stephpy/vim-yaml'
 " Plug 'lepture/vim-jinja'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
 " Plug 'robbles/logstash.vim'
