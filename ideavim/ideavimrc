@@ -29,3 +29,6 @@ set matchit
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
 Plug 'tpope/vim-surround'
+
+imap <C-n> <ESC>:action HippieCompletion<CR>a
+imap <C-p> <ESC>:action HippieBackwardCompletion<CR>a
