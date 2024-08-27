@@ -25,8 +25,8 @@ export HISTIGNORE="ls:la:l:pwd:clear:history:jobs:fg:bg:pushd*:popd*:g s:g d:g l
 # use custom manpage section "f"
 export MANSECT="1:n:l:8:3:2:3posix:3pm:3perl:3am:5:4:9:6:7:f"
 
-# ignore .egg-info when completing
-export FIGNORE=".egg-info:$FIGNORE"
+# ignore when completing
+export FIGNORE=".egg-info:Cargo.lock:$FIGNORE"
 
 # if we're non-interactive, then we're done
 # =========================================
