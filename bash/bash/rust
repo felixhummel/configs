@@ -1,2 +1,0 @@
-[[ -d $HOME/.cargo/bin ]] && export PATH=$PATH:$HOME/.cargo/bin
-[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

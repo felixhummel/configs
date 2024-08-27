@@ -1,0 +1,7 @@
+ANDROID_HOME=$HOME/Android/Sdk
+
+if [[ -d $ANDROID_HOME ]]; then
+    export ANDROID_HOME
+    export PATH=$ANDROID_HOME/emulator:$PATH
+    export PATH=$ANDROID_HOME/platform-tools:$PATH
+fi
