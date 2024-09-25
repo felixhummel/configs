@@ -38,11 +38,11 @@ export FIGNORE=".egg-info:Cargo.lock:$FIGNORE"
 
 # load everything from $HOME/.bash/ except README.md and directories
 if [[ -d $HOME/.bash/ ]]; then
-    for f in $HOME/.bash/*; do
-        [[ $f == *README.md* ]] && continue
-        [[ -d $f ]] && continue
-        source $f
-    done
+  for f in $HOME/.bash/*; do
+    [[ $f == *README.md* ]] && continue
+    [[ -d $f ]] && continue
+    source $f
+  done
 fi
 
 # also load local stuff
