@@ -1,19 +1,24 @@
 #!/bin/bash
-# https://github.com/nodejs/help/wiki/Installation
+# https://nodejs.org/en/download/package-manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-NODEJS_HOME=/usr/local/lib/nodejs/bin
-if [[ -d $NODEJS_HOME ]]; then
-  export NODEJS_HOME
-  export PATH=$PATH:$NODEJS_HOME
-fi
-
-# http://stackoverflow.com/questions/18088372/how-to-npm-install-global-not-as-root
-_npm_packages=$HOME/.npm-packages
-
-if [[ -d $_npm_packages ]]; then
-    export _npm_packages
-    export NODE_PATH="$_npm_packages/lib/node_modules:$NODE_PATH"
-    export PATH=$_npm_packages/bin:$PATH
-fi
-
-unset _npm_packages
+# # https://github.com/nodejs/help/wiki/Installation
+#
+# NODEJS_HOME=/usr/local/lib/nodejs/bin
+# if [[ -d $NODEJS_HOME ]]; then
+#   export NODEJS_HOME
+#   export PATH=$PATH:$NODEJS_HOME
+# fi
+#
+# # http://stackoverflow.com/questions/18088372/how-to-npm-install-global-not-as-root
+# _npm_packages=$HOME/.npm-packages
+#
+# if [[ -d $_npm_packages ]]; then
+#     export _npm_packages
+#     export NODE_PATH="$_npm_packages/lib/node_modules:$NODE_PATH"
+#     export PATH=$_npm_packages/bin:$PATH
+# fi
+#
+# unset _npm_packages
