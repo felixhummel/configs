@@ -33,6 +33,9 @@
   tmp = ci -m tmp --no-verify
   outgoing = log origin/master..HEAD
   vd = difftool -y --tool=vimdiff
+  # TODO: get main branch dynamically (main, fallback to master)
+  upmaster = fetch origin master:master
+  upmain = fetch origin main:main
 
 [branch]
   autosetupmerge = always
