@@ -16,10 +16,7 @@ endfunction
 function! FelixClip()
   " try to put clipboard contents into the register C
   " on error: toggle paste
-  let cmd = 'xsel --clipboard'
-  if exists('g:FelixClipCommand')
-    let cmd = g:FelixClipCommand
-  endif
+  let cmd = g:FelixClipCommand
   try
     let @c = system(g:FelixClipCommand)
     if v:shell_error != 0
