@@ -1,1 +1,0 @@
-[[ -d ~/apps/flutter ]] && export PATH=~/apps/flutter/bin:$PATH
