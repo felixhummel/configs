@@ -7,7 +7,7 @@ source_if_exists /usr/share/doc/fzf/examples/completion.bash
 source_if_exists ~/.fzf.bash
 
 # enable completion for essential aliases
-_fzf_setup_completion path v g git kubectl
+type _fzf_setup_completion &>/dev/null && _fzf_setup_completion path v g git kubectl
 
 export FZF_CTRL_R_OPTS="--preview-window down:2:hidden:wrap --bind tab:accept"
 
