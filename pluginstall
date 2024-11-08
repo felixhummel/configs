@@ -1,5 +1,4 @@
 #!/bin/bash
 set -euo pipefail
 
-exec $EDITOR +PlugInstall +qall
-
+exec ${EDITOR:-vim} +PlugInstall +qall
