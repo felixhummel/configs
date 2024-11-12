@@ -1,0 +1,4 @@
+complete -C tofu tofu
+
+alias terraform=tofu
+complete -C tofu terraform
