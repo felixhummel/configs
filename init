@@ -28,6 +28,7 @@ _nested/config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 
 This is a special case, because I only want files very selectively.
 """
+import logging
 import os
 from os import listdir, chdir
 from os.path import abspath, dirname, isdir, join
@@ -46,7 +47,6 @@ OVERRIDE_PREVIOUS = False
 HOME = os.environ['HOME']
 BACKUP_DIR = join(HOME, 'bak', checkout_dirname)
 
-import logging
 log = logging.getLogger('init')
 loglevel = os.environ.get('LOGLEVEL', 'WARNING').upper()
 logging.basicConfig(level=loglevel, format='%(levelname)-7s %(message)s')
