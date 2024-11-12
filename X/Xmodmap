@@ -20,4 +20,4 @@ keycode 167 = Next
 !! AltGr 2 for ² as in m²
 keycode 10 = 1 exclam onesuperior onesuperior
 keycode 11 = 2 at twosuperior twosuperior
-keycode 12 = 2 numbersign threesuperior threesuperior
+keycode 12 = 3 numbersign threesuperior threesuperior
