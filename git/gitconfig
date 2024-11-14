@@ -31,6 +31,7 @@
   rtags = ls-remote --tags
   s = status
   tmp = ci -m tmp --no-verify
+  up = remote update
   outgoing = log origin/master..HEAD
   vd = difftool -y --tool=vimdiff
   # TODO: get main branch dynamically (main, fallback to master)
