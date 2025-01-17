@@ -1,0 +1,9 @@
+[tools]
+jq = "latest"
+lazygit = "latest"
+node = "latest"
+python = "3.12"
+shellcheck = "latest"
+"ubi:hetznercloud/cli" = "1.49.0"
+usage = "latest"
+uv = "latest"
