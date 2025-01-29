@@ -7,3 +7,4 @@ shellcheck = "latest"
 "ubi:hetznercloud/cli" = "1.49.0"
 usage = "latest"
 uv = "latest"
+"ubi:smallstep/cli" = { version = "latest", exe = "step" }
