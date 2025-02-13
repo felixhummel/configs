@@ -4,7 +4,8 @@ lazygit = "latest"
 node = "latest"
 python = "3.12"
 shellcheck = "latest"
-"ubi:hetznercloud/cli" = "1.49.0"
+"ubi:hetznercloud/cli" = { version = "1.49.0", exe = "hcloud" }
 usage = "latest"
 uv = "latest"
 "ubi:smallstep/cli" = { version = "latest", exe = "step" }
+"ubi:ast-grep/ast-grep" = "latest"
