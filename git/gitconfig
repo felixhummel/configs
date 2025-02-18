@@ -83,6 +83,7 @@
 	defaultBranch = main
 [advice]
 	detachedHead = false
+	skippedCherryPicks = false
 [gpg]
 	format = ssh
 [commit]
