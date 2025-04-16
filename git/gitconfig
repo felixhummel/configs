@@ -25,7 +25,6 @@
   mff = merge --ff-only
   patch = diff --patch --no-prefix --no-color
   pff = pull --ff-only
-  po = push -u origin
   pr = pull --rebase
   poop = stash pop
   re = reset HEAD
@@ -64,6 +63,8 @@
   untracked = cyan
 
 [diff]
+  algorithm = histogram
+  colorMoved = plain
   renames = true
   renameLimit = 20000
 
@@ -74,8 +75,11 @@
   insteadOf = git://
 
 [core]
+  fsmonitor = true
+  untrackedCache = true
   excludesfile = ~/.gitignore_global
 [push]
+  autoSetupRemote = true
   default = current
 [credential]
 	helper = store
