@@ -66,5 +66,9 @@ fi
 # rust
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
+# pnpm
+export PNPM_HOME="/home/felix/.local/share/pnpm"
+_prepend_to_path_if_exists $PNPM_HOME
+
 # Cleanup
 unset _prepend_to_path_if_exists
