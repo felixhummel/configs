@@ -96,3 +96,6 @@
 	signingkey = ~/.ssh/id_ed25519.pub
 [rerere]
 	enabled = true
+# https://docs.gitlab.com/user/project/repository/signed_commits/ssh/
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
