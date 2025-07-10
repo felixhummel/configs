@@ -1,0 +1,1 @@
+hash uv 2>/dev/null && source <(uv generate-shell-completion bash)
