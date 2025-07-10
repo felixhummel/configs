@@ -10,6 +10,7 @@ _prepend_to_path_if_exists ~/.deno/bin
 _prepend_to_path_if_exists ~/.local/share/mise/shims
 _prepend_to_path_if_exists ~/apps/flutter/bin
 _prepend_to_path_if_exists ~/hukudo/bin
+_prepend_to_path_if_exists ~/.local/share/JetBrains/Toolbox/scripts
 _prepend_to_path_if_exists ~/.krew/bin
 _prepend_to_path_if_exists ~/.nimble/bin
 
