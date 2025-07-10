@@ -14,6 +14,9 @@ _prepend_to_path_if_exists ~/.local/share/JetBrains/Toolbox/scripts
 _prepend_to_path_if_exists ~/.krew/bin
 _prepend_to_path_if_exists ~/.nimble/bin
 
+# use ~/.venv if no other virtualenv present
+[[ -z $VIRTUAL_ENV ]] && source ~/.venv/bin/activate
+
 # Android
 ANDROID_HOME=$HOME/Android/Sdk
 
@@ -41,26 +44,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# pyenv
-PYENV_ROOT="$HOME/.pyenv"
-
-if [[ -d $PYENV_ROOT ]]; then
-  export PYENV_ROOT
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  if [[ -d $PYENV_ROOT/plugins/pyenv-virtualenv/ ]]; then
-    eval "$(pyenv virtualenv-init -)"
-  fi
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-fi
-
-my_pyenv_bin=$PYENV_ROOT/versions/$USER/bin
-
-if [[ -d $my_pyenv_bin ]]; then
-  pyenv global $USER
-fi
 
 # ripgrep
 [[ -f ~/.ripgreprc ]] && export RIPGREP_CONFIG_PATH=~/.ripgreprc
