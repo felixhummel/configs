@@ -88,6 +88,7 @@
 [advice]
 	detachedHead = false
 	skippedCherryPicks = false
+	diverging = false
 [gpg]
 	format = ssh
 [commit]
