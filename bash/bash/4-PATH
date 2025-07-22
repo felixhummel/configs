@@ -15,7 +15,7 @@ _prepend_to_path_if_exists ~/.krew/bin
 _prepend_to_path_if_exists ~/.nimble/bin
 
 # use ~/.venv if no other virtualenv present
-[[ -z $VIRTUAL_ENV ]] && source ~/.venv/bin/activate
+[[ -z $VIRTUAL_ENV ]] && [[ -d ~/.venv/bin/activate ]] && source ~/.venv/bin/activate
 
 # Android
 ANDROID_HOME=$HOME/Android/Sdk
