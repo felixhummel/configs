@@ -3,5 +3,6 @@
 if hash nvim 2>/dev/null; then
   export EDITOR=nvim
   export VISUAL=nvim
+  export MANPAGER='nvim --appimage-extract-and-run +Man!'
   alias vim="command nvim -p"
 fi
