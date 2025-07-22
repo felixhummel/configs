@@ -4,7 +4,7 @@
 
 [alias]
   b = branch -avv --sort -committerdate
-  cam = commit --amend
+  cam = ci --amend
   ci = commit --verbose
   cia = commit --verbose --all
   cini = commit -m initial
@@ -28,6 +28,7 @@
   pr = pull --rebase
   poop = stash pop
   re = reset HEAD
+  rec = rebase --continue
   rtags = ls-remote --tags
   s = status
   tmp = ci -m tmp --no-verify
