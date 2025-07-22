@@ -22,5 +22,11 @@ sops = "latest"
 age = "latest"
 slsa-verifier = "latest"
 pnpm = "latest"
+"ubi:jj-vcs/jj" = "latest"
+"ubi:bgreenwell/lstr" = "latest"
 duckdb = "latest"
+hyperfine = "latest"
 fd = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = []
