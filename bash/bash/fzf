@@ -2,9 +2,13 @@
 source_if_exists() {
   [ -f $1 ] && source $1
 }
-source_if_exists /usr/share/doc/fzf/examples/key-bindings.bash
-source_if_exists /usr/share/doc/fzf/examples/completion.bash
 source_if_exists ~/.fzf.bash
+
+# use `fd` if available
+if hash fd >/dev/null; then
+    export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
 # enable completion for essential aliases
 type _fzf_setup_completion &>/dev/null && _fzf_setup_completion path v g git kubectl
