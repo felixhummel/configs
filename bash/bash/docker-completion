@@ -1,0 +1,3 @@
+hash docker 2>/dev/null && eval "$(docker completion bash)"
+alias d=docker
+complete -o default -F __start_docker d
