@@ -1,0 +1,3 @@
+hash jj 2>/dev/null && eval "$(jj util completion bash)"
+alias j=jj
+complete -F _jj -o nosort -o bashdefault -o default j
