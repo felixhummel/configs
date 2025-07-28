@@ -3,6 +3,10 @@ local wezterm = require("wezterm") --[[@as Wezterm]]
 
 local config = wezterm.config_builder()
 
+-- Pro
+-- Tango (terminal.sexy)  # Kommt am nächsten an mein xfce4-terminal theme ran, hat aber muted FG auf hellem BG
+config.color_scheme = "Phrak1 (terminal.sexy)"
+
 -- Based on
 -- https://github.com/wezterm/wezterm/discussions/3426
 -- Get relevant themes for the current mode.
@@ -73,13 +77,8 @@ end
 local function next_scheme(window, _)
 	local schemes, index = schemes_and_current_index(window)
 	-- increment with wraparound
-	local new_index
-	if index < #schemes then
-		new_index = index + 1
-	else
-		new_index = 1
-	end
-	switch_to_scheme_index(window, schemes, new_index)
+	index = index < #schemes and index + 1 or 1
+	switch_to_scheme_index(window, schemes, index)
 end
 local function prev_scheme(window, _)
 	local schemes, index = schemes_and_current_index(window)
