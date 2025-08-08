@@ -5,7 +5,7 @@ source_if_exists() {
 source_if_exists ~/.fzf.bash
 
 # use `fd` if available
-if hash fd >/dev/null; then
+if hash fd &>/dev/null; then
     export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
