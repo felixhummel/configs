@@ -1,3 +1,8 @@
-hash jj 2>/dev/null && eval "$(jj util completion bash)"
-alias j=jj
-complete -F _jj -o nosort -o bashdefault -o default j
+# vim: set ft=bash :
+# shellcheck disable=SC1090
+if hash jj 2>/dev/null; then
+    source <(COMPLETE=bash jj)
+    alias j=jj
+    # complete -p jj | sed -e 's/jj$/j/'
+    complete -o bashdefault -o nosort -o nospace -F _clap_complete_jj j
+fi
