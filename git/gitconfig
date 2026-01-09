@@ -13,6 +13,8 @@
   ds = diff --color --staged
   # https://spin.atomicobject.com/2018/04/05/fuzzy-find-git-add/
   fa = "!git ls-files -m -o --exclude-standard | fzf --print0 -m --preview='git diff --color {}' | xargs -0 -t -o git add"
+  # https://stackoverflow.com/a/79601565/241240
+  fixup = "!f() { git commit --fixup=$1 && git rebase -i --autosquash --autostash $1~1; }; f"
   # http://coderwall.com/p/euwpig?i=3&p=1&t=git
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset' --abbrev-commit
   ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold white)<%an>%Creset\n%b' --abbrev-commit
@@ -53,7 +55,7 @@
   remote = green
 
 [color "diff"]
-  meta = yellow
+  meta = cyan reverse
 
 [color "grep"]
   match = 10 22
