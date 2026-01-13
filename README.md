@@ -5,7 +5,6 @@ cd $HOME
 git clone https://github.com/felixhummel/configs.git
 cd configs
 ./init --force --email "$USER@$(hostname -f)" --name "$USER"
-./pluginstall
 exec $SHELL
 ```
 
@@ -17,10 +16,11 @@ Missing git?
 apt-get update && apt-get --yes install git
 ```
 
-tmux plugins (via TPM)
+[Mise](https://mise.jdx.dev/) completion
 ```
-git submodule update --init
+mise completion bash --include-bash-completion-lib > ~/.local/share/bash-completion/mise
 ```
+
 
 # Absolute Essentials
 Don't want/need all the configs on a box? Here's the bare minimum:
