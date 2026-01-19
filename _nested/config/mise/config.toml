@@ -1,8 +1,8 @@
 [tools]
-"ubi:ast-grep/ast-grep" = "latest"
-"ubi:boyter/scc" = "latest"
-"ubi:hetznercloud/cli" = { version = "1.49.0", exe = "hcloud" }
-"ubi:smallstep/cli" = { version = "latest", exe = "step" }
+"github:ast-grep/ast-grep" = "latest"
+"github:boyter/scc" = "latest"
+"github:hetznercloud/cli" = { version = "1.49.0", exe = "hcloud" }
+"github:smallstep/cli" = { version = "latest", exe = "step" }
 gdu = "latest"
 jq = "latest"
 lazygit = "latest"
@@ -17,16 +17,17 @@ kubectl = "latest"
 delta = "latest"
 zellij = "latest"
 kustomize = "latest"
-"ubi:typst/typst" = "latest"
+"github:typst/typst" = "latest"
 sops = "latest"
 age = "latest"
 slsa-verifier = "latest"
 pnpm = "latest"
-"ubi:jj-vcs/jj" = "latest"
-"ubi:bgreenwell/lstr" = "latest"
+"github:jj-vcs/jj" = "latest"
+"github:bgreenwell/lstr" = "latest"
 duckdb = "latest"
 hyperfine = "latest"
 fd = "latest"
+fnox = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = []
