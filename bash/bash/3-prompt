@@ -31,7 +31,7 @@ _fh_prompt_vcs() {
         x=$(jj --ignore-working-copy --no-pager log --no-graph --color=always -r @ -T '
             concat(
                 separate(" ",
-                    format_short_change_id_with_hidden_and_divergent_info(self),
+                    format_short_change_id_with_change_offset(self),
                     bookmarks,
                     if(conflict, label("conflict", "conflict"))
                 ),
