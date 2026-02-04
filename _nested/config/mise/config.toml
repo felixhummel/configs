@@ -28,6 +28,7 @@ duckdb = "latest"
 hyperfine = "latest"
 fd = "latest"
 fnox = "latest"
+deno = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = []
