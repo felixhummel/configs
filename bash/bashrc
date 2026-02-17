@@ -53,7 +53,7 @@ if compgen -G "$HOME/.bash.local/*.sh" >/dev/null; then
   for f in $HOME/.bash.local/*.sh; do
     mode=$(stat -c %a $f)
     if [[ $mode != 600 ]]; then
-      echo "WARNING $f has mode $mode" >&2
+      echo "WARNING $f has mode $mode. Fix: chmod 600 $f" >&2
     fi
     source $f
   done
