@@ -1,2 +1,0 @@
-# inspired by /usr/share/doc/fzf/examples/key-bindings.bash
-bind -x '"\C-f": "fzf-file-widget"'

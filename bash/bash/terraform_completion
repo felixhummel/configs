@@ -1,2 +1,0 @@
-
-hash terraform 2>/dev/null && complete -C terraform terraform

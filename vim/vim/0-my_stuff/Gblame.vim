@@ -1,1 +1,0 @@
-command Gblame Git blame

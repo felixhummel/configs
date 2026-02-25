@@ -1,1 +1,0 @@
-[[ -f ~/bin/completion.bash ]] && source ~/bin/completion.bash

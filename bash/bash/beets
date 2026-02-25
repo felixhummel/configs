@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if hash beet 2>/dev/null; then
-  eval "$(beet completion)"
-fi

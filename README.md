@@ -1,36 +1,8 @@
-# Getting Started
-Clone this and initialize. Backups will be created in `$HOME/bak/configs`.
+# MOVED
 ```
-cd $HOME
-git clone https://github.com/felixhummel/configs.git
-cd configs
-./init --force --email "$USER@$(hostname -f)" --name "$USER"
-exec $SHELL
-```
-
-Git email and name will be written to `~/.gitconfig.d/user` which is included by
-`~/.gitconfig`.
-
-Missing git?
-```
-apt-get update && apt-get --yes install git
-```
-
-[Mise](https://mise.jdx.dev/) completion
-```
-mise completion bash --include-bash-completion-lib > ~/.local/share/bash-completion/mise
-```
-
-
-# Absolute Essentials
-Don't want/need all the configs on a box? Here's the bare minimum:
-```
-curl https://raw.githubusercontent.com/felixhummel/configs/master/readline/inputrc > ~/.inputrc
-
-cat <<EOF >> ~/.vimrc
-set mouse=
-EOF
-
-exec $SHELL
-
+git remote rename origin github
+git remote add origin https://codeberg.org/felixhummel/configs.git
+git fetch
+git checkout main
+git reset --hard origin/main
 ```

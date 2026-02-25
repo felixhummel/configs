@@ -1,3 +1,0 @@
-if hash kustomize 2>/dev/null; then
-  source <(kustomize completion bash)
-fi

@@ -1,1 +1,0 @@
-hash helm 2>/dev/null && source <(helm completion bash)

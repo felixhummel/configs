@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if hash pipenv 2>/dev/null; then
-  eval "$(pipenv --completion)"
-  export PIPENV_IGNORE_VIRTUALENVS=1
-fi

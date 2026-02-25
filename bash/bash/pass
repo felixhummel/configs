@@ -1,2 +1,0 @@
-[[ -f /usr/share/bash-completion/completions/pass ]] && source /usr/share/bash-completion/completions/pass
-export PASSWORD_STORE_ENABLE_EXTENSIONS=true
